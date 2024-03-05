@@ -1,3 +1,7 @@
 <p>
-  <%= @content %>
+  <%= @bot.content %>
 </p>
+<%= simple_form_for [@user] do |f| %>
+  <%= f.input :content %>
+  <%= f.submit %>
+<% end %>
