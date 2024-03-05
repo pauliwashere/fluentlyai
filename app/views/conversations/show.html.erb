@@ -2,8 +2,11 @@
   <div class="bot-msg">
     <%= @bot.content %>
   </div>
+
+</div>
+<div class = "input-field">
   <%= simple_form_for [@conversation, @user_message] do |f| %>
-    <%= f.input :content %>
-    <%= f.submit %>
+      <%= f.input :content %>
+      <%= f.submit %>
   <% end %>
 </div>

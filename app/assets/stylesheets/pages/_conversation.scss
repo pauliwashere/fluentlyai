@@ -1,0 +1,6 @@
+.chat-window {
+  display: grid;
+  min-height: 70vh;
+  // to be checked before go live
+  grid-template-rows: auto 1fr auto;
+}
