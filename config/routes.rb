@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   get 'users/choose_language_level', to: 'users#choose_language_level'
   post 'users/set_language_level', to: 'users#set_language_level'
 
-  resources :conversations, only: %i[show create]
+  resources :conversations, only: %i[show create] do
+    resources :user_messages, only: %i[create]
+  end
   # Defines the root path route ("/")
 
   # root "posts#index"

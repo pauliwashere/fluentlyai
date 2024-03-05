@@ -1,7 +1,9 @@
-<p>
-  <%= @bot.content %>
-</p>
-<%= simple_form_for [@user] do |f| %>
-  <%= f.input :content %>
-  <%= f.submit %>
-<% end %>
+<div class="chat-window">
+  <div class="bot-msg">
+    <%= @bot.content %>
+  </div>
+  <%= simple_form_for [@conversation, @user_message] do |f| %>
+    <%= f.input :content %>
+    <%= f.submit %>
+  <% end %>
+</div>
