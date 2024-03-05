@@ -6,6 +6,6 @@ class UsersController < ApplicationController
 
   def set_language_level
     current_user.update(language_level: params[:level])
-    redirect_to some_path # replace with where you want to redirect the user
+    redirect_to topics_path
   end
 end
