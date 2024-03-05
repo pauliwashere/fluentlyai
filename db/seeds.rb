@@ -8,6 +8,8 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 User.destroy_all
+Topic.destroy_all
+
 
 require "open-uri"
 # users:
@@ -32,3 +34,10 @@ paulina_file = URI.open("https://plus.unsplash.com/premium_photo-1671656333460-a
 paulina = User.new(username: "Paulina", email: "paulina1@mail.com", password: "123123")
 paulina.photo.attach(io: paulina_file, filename: "nes1.png", content_type: "image/png")
 paulina.save
+
+# Topics:
+supermarket = Topic.create(name: "Supermarket", description: "Conversation happens at the supermarket between you and the cashier", level: "Beginner")
+airport = Topic.create(name: "Airport", description: "Conversation happens at the airport between you and the flight attendant", level: "Beginner")
+restaurant = Topic.create(name: "Restaurant", description: "Conversation happens at the restaurant between you and the waitress", level: "Beginner")
+directions = Topic.create(name: "Directions", description: "Conversation happens at the street between you and forigner asking for directions", level: "Beginner")
+hospital = Topic.create(name: "Hospital", description: "Conversation happens at the hospital between you and the receptionist", level: "Beginner")
