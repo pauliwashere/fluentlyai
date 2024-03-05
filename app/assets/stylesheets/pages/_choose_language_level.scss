@@ -1,0 +1,26 @@
+.language-level-grid {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.language-level-button {
+  width: 150px;
+  height: 50px;
+}
+
+.centered-title {
+  text-align: center;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 50vh;
+}

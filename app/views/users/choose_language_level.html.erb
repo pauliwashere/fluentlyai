@@ -1,6 +1,23 @@
-
-<h1>Choose Your Language Level</h1>
-
-<%= button_to 'Beginner', { action: "set_language_level", level: "beginner" }, method: :post %>
-<%= button_to 'Intermediate', { action: "set_language_level", level: "intermediate" }, method: :post %>
-<%= button_to 'Advanced', { action: "set_language_level", level: "advanced" }, method: :post %>
+<h1 class="centered-title">Choose Your Language Level</h1>
+<div class="page-container">
+  <div class="language-level-grid">
+    <div>
+      <%= button_to 'Beginner', { action: "set_language_level", level: "beginner" }, method: :post, class: "language-level-button" %>
+    </div>
+    <div>
+      This is for those who are just starting to learn the language.
+    </div>
+    <div>
+      <%= button_to 'Intermediate', { action: "set_language_level", level: "intermediate" }, method: :post, class: "language-level-button" %>
+    </div>
+    <div>
+      This is for those who have some experience with the language and want to improve.
+    </div>
+    <div>
+      <%= button_to 'Advanced', { action: "set_language_level", level: "advanced" }, method: :post, class: "language-level-button" %>
+    </div>
+    <div>
+      This is for those who are fluent in the language and want to maintain their skills.
+    </div>
+  </div>
+</div>
