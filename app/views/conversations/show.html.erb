@@ -1,9 +1,11 @@
 <div class="chat-window">
   <div class="bot-msg">
-    <%= @bot_message.content %>
+    <%= @conversation.bot_messages.first.content %>
   </div>
   <%# <% if @user_message.present? %>
       <% @conversation.user_messages.each do |msg| %>
+
+
         <div class="user-msg">
           <%= msg.content %>
         </div>

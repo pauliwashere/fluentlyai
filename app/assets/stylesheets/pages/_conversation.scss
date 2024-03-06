@@ -4,3 +4,27 @@
   // to be checked before go live
   grid-template-rows: auto 1fr auto;
 }
+
+.bot-msg {
+  background-color: #FFF4CE;
+  border: #10212E 1px solid;
+  border-radius: 10px;
+  color: #70857E;
+  width: 55%;
+  margin-left: 20px;
+  padding: 15px;
+  font-size: 16px;
+}
+
+.user-msg {
+  background-color: #E4AFFF;
+  border: #10212E 1px solid;
+  border-radius: 10px;
+  color: #10212E;
+  width: 55%;
+  margin: 20px;
+  justify-self: right;
+  padding: 15px;
+  font-size: 16px;
+  text-align: right;
+}
