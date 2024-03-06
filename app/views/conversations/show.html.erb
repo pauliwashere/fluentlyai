@@ -1,8 +1,8 @@
 <div class="chat-window">
   <div class="bot-msg">
     <%= @conversation.bot_messages.first.content %>
-      <% if @bot.audio.attached? %>
-        <%= audio_tag @bot.audio, controls: true %>
+      <% if @bot_message.audio.attached? %>
+        <%= audio_tag @bot_message.audio, controls: true %>
         <% else %>
           <p>No audio available</p>
         <% end %>

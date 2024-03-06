@@ -2,7 +2,7 @@ class UserMessagesController < ApplicationController
 
   def create
     @conversation = Conversation.find(params[:conversation_id])
-    @bot_message = BotMessage.where(conversation_id: @conversation.id).last
+    @bot_message = BotMessage.order(created_at: :desc).find_by(conversation: @conversation)
     @user_message = UserMessage.new(user_message_params)
     # @user_message.user = current_user
     @user_message.conversation = @conversation

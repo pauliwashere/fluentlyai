@@ -5,7 +5,7 @@ class UserMessage < ApplicationRecord
   belongs_to :bot_message
 
   def generate_bot
-    messages = BotMessage.where(conversation_id: conversation.id).map { |msg| { role: "system", content: msg.content}}
+    messages = BotMessage.where(conversation_id: conversation.id).map { |msg| { role: "assistant", content: msg.content}}
     UserMessage.where(conversation_id: conversation.id).each { |msg| messages << { role: "user", content: msg.content}}
     bot = BotMessage.new(conversation: conversation)
     bot.save
