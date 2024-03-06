@@ -1,0 +1,22 @@
+<div class="container topics" >
+  <h1>Topics</h1>
+  <p>Awesome! Your level is a <%= @user.level %>.</p>
+  <p> Please choose a topic you would like to talk about.</p>
+  <div class="container-cards category-wrapper">
+    <div class="card-category category-item">
+         <%= simple_form_for @conversation do |f|%>
+          <%= f.association :topic,
+            as: :radio_buttons,
+            collection_wrapper_tag: 'div',
+            collection_wrapper_class: 'category-wrapper',
+            item_wrapper_class: 'category-item',
+            input_html: {class: 'category-selector'},
+            collection: Topic.all.pluck(:name, :id),
+            legend_tag: false%>
+          <%= f.button :submit, value: "Start Conversation", :class => "submit-styling"%>
+          <% end %>
+    </div>
+
+  </div>
+
+</div>
