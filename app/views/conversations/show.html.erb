@@ -1,7 +1,9 @@
 <p>
   <%= @bot.content %>
 </p>
-<%= simple_form_for [@user] do |f| %>
-  <%= f.input :content %>
-  <%= f.submit %>
+
+<% if @bot.audio.attached? %>
+  <%= audio_tag @bot.audio, controls: true %>
+<% else %>
+  <p>No audio available</p>
 <% end %>

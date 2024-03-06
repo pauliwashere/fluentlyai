@@ -5,6 +5,7 @@ class ConversationsController < ApplicationController
     @bot.conversation = @conversation
     @bot.save
     @bot.generate_content(@conversation.topic)
+    @bot.generate_audio
   end
 
   def create
