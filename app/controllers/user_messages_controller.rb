@@ -10,8 +10,8 @@ class UserMessagesController < ApplicationController
 
     if @user_message.save
       redirect_to conversation_path(@conversation)
-      @bot_message = BotMessage.new
-      @bot_message.generate_content(@conversation.topic) # continue here
+      #@bot_message = BotMessage.new
+      #@bot_message.generate_content(@conversation.topic) # continue here
     else
       render "conversations/show", status: :unprocessable_entity
     end

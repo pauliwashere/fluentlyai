@@ -2,7 +2,6 @@
   <div class="bot-msg">
     <%= @bot.content %>
   </div>
-
 </div>
 <div class = "input-field">
   <%= simple_form_for [@conversation, @user_message] do |f| %>
@@ -10,3 +9,6 @@
       <%= f.submit %>
   <% end %>
 </div>
+<% @user_message.each do |item| %>
+  item
+<% end %>
