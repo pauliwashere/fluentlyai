@@ -1,5 +1,6 @@
 class BotMessage < ApplicationRecord
   belongs_to :conversation
+  has_one_attached :audio
 
 
   def generate_content(topic)
@@ -28,5 +29,19 @@ class BotMessage < ApplicationRecord
 
     update(content: new_content)
     return new_content
+  end
+
+  def generate_audio
+    client = OpenAI::Client.new
+    response = client.audio.speech(
+      parameters: {
+        model: "tts-1",
+        input: self.content,
+        voice: "alloy"
+      }
+    )
+    File.binwrite('demo.mp3', response)
+    audio_content = File.read("demo.mp3")
+    audio.attach(io: StringIO.new(audio_content), filename: "bot_audio_#{id}.mp3", content_type: "audio/mp3")
   end
 end

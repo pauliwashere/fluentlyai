@@ -5,7 +5,6 @@ class ConversationsController < ApplicationController
     # @conversation.user = @user
     # @user = current_user
     @user_message = UserMessage.new
-
   end
 
   def create
@@ -17,6 +16,7 @@ class ConversationsController < ApplicationController
       @bot_message.conversation = @conversation
       @bot_message.generate_content(@conversation.topic)
       @bot_message.save
+      @bot_message.generate_audio # place might change
       redirect_to conversation_path(@conversation)
     else
       render 'topics/index', status: :unprocessable_entity

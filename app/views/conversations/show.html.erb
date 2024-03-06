@@ -1,21 +1,21 @@
 <div class="chat-window">
   <div class="bot-msg">
     <%= @conversation.bot_messages.first.content %>
+      <% if @bot.audio.attached? %>
+        <%= audio_tag @bot.audio, controls: true %>
+        <% else %>
+          <p>No audio available</p>
+        <% end %>
+
   </div>
-  <%# <% if @user_message.present? %>
-      <% @conversation.user_messages.each do |msg| %>
-
-
-        <div class="user-msg">
-          <%= msg.content %>
-        </div>
-        <div class="bot-msg">
-          <%= msg.bot_message.content %>
-        </div>
-      <% end %>
-    <%# <% end %>
-
-
+  <% @conversation.user_messages.each do |msg| %>
+    <div class="user-msg">
+      <%= msg.content %>
+    </div>
+    <div class="bot-msg">
+      <%= msg.bot_message.content %>
+    </div>
+  <% end %>
 </div>
 <div class = "input-field">
   <%= simple_form_for [@conversation, @user_message] do |f| %>
