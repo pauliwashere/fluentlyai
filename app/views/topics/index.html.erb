@@ -1,11 +1,9 @@
 <div class="container topics" >
   <h1>Topics</h1>
-  <p>Awesome! Your level is a Beginner.</p>
+  <p>Awesome! Your level is a <%= @user.level %>.</p>
   <p> Please choose a topic you would like to talk about.</p>
   <div class="container-cards category-wrapper">
     <div class="card-category category-item">
-       <ul>
-
          <%= simple_form_for @conversation do |f|%>
           <%= f.association :topic,
             as: :radio_buttons,
@@ -16,7 +14,6 @@
             collection: Topic.all.pluck(:name)%>
           <%= f.submit%>
           <% end %>
-      </ul>
     </div>
 
   </div>
