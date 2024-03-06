@@ -20,10 +20,6 @@ class BotMessage < ApplicationRecord
     client = OpenAI::Client.new
     chaptgpt_response = client.chat(parameters: {
       model: "gpt-3.5-turbo",
-      # messages: [{ role: "assistant", content: user_message.bot_message.content },
-      #   { role: "user", content: user_message.content },
-      #   { role: "user", content: "Ich möchte ein Apfel kaufen" } ]
-      # })
       messages: messages })
     new_content = chaptgpt_response["choices"][0]["message"]["content"]
 

@@ -3,6 +3,10 @@
   min-height: 70vh;
   // to be checked before go live
   grid-template-rows: auto 1fr auto;
+  margin: 8%;
+  margin-top: 0;
+  background-color: #ffffff;
+  border-radius: 10px;
 }
 
 .bot-msg {
@@ -11,7 +15,7 @@
   border-radius: 10px;
   color: #70857E;
   width: 55%;
-  margin-left: 20px;
+  margin: 20px;
   padding: 15px;
   font-size: 16px;
 }
@@ -22,7 +26,7 @@
   border-radius: 10px;
   color: #10212E;
   width: 55%;
-  margin: 20px;
+  margin-right: 20px;
   justify-self: right;
   padding: 15px;
   font-size: 16px;

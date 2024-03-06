@@ -16,10 +16,11 @@
       <%= msg.bot_message.content %>
     </div>
   <% end %>
+
 </div>
 <div class = "input-field">
-  <%= simple_form_for [@conversation, @user_message] do |f| %>
-      <%= f.input :content %>
-      <%= f.submit %>
-  <% end %>
+    <%= simple_form_for [@conversation, @user_message] do |f| %>
+        <%= f.input :content %>
+        <%= f.submit %>
+    <% end %>
 </div>
