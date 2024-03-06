@@ -1,7 +1,19 @@
 <div class="chat-window">
   <div class="bot-msg">
-    <%= @bot.content %>
+    <%= @bot_message.content %>
   </div>
+  <%# <% if @user_message.present? %>
+      <% @conversation.user_messages.each do |msg| %>
+        <div class="user-msg">
+          <%= msg.content %>
+        </div>
+        <div class="bot-msg">
+          <%= msg.bot_message.content %>
+        </div>
+      <% end %>
+    <%# <% end %>
+
+
 </div>
 <div class = "input-field">
   <%= simple_form_for [@conversation, @user_message] do |f| %>
@@ -9,6 +21,3 @@
       <%= f.submit %>
   <% end %>
 </div>
-<% @user_message.each do |item| %>
-  item
-<% end %>

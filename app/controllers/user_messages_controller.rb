@@ -7,7 +7,7 @@ class UserMessagesController < ApplicationController
     # @user_message.user = current_user
     @user_message.conversation = @conversation
     @user_message.bot_message = @bot_message
-
+    # @user_messages = UserMessage.where(conversation_id: @conversation)
     if @user_message.save
       redirect_to conversation_path(@conversation)
       #@bot_message = BotMessage.new
