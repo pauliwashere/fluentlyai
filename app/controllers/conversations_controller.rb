@@ -8,14 +8,13 @@ class ConversationsController < ApplicationController
   end
 
   def create
-    @conversation = Conversation.new(conversation_params)
-    @conversation.save
-    redirect_to conversation_path(@conversation)
-  end
-
-  private
-
-  def conversation_params
-    params.require(:conversation).permit(:topic_id, :user_id)
+    @user = current_user
+    @topic_id = params[:conversation][:topic_id]
+    @conversation = Conversation.new(topic_id: @topic_id, user: @user)
+    if @conversation.save
+      redirect_to conversation_path(@conversation)
+    else
+      render 'topics/index', status: :unprocessable_entity
+    end
   end
 end

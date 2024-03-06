@@ -11,8 +11,9 @@
             collection_wrapper_class: 'category-wrapper',
             item_wrapper_class: 'category-item',
             input_html: {class: 'category-selector'},
-            collection: Topic.all.pluck(:name)%>
-          <%= f.submit%>
+            collection: Topic.all.pluck(:name, :id),
+            legend_tag: false%>
+          <%= f.button :submit, value: "Start a conversation", :class => "submit-styling"%>
           <% end %>
     </div>
 

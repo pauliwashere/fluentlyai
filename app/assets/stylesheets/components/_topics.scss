@@ -29,7 +29,7 @@
   display: block;
   cursor: pointer;
   box-sizing: border-box;
-  width: 100%;
+  width: 600px;
   font-size: 18px;
   text-align: center;
   font-weight: bold;
@@ -43,6 +43,14 @@
   color: #9505dd !important;
 }
 
+.submit-styling {
+  background-color: #E4AFFF;
+  font-weight: bold;
+  padding: 20px;
+}
+:hover.submit-styling  {
+  background-color: #70857E;
+}
 
 // #snippet_category_topic + label {
 //   color: #FD1015;
