@@ -29,4 +29,7 @@ class ConversationsController < ApplicationController
     @my_current_conversation = false
     redirect_to topics_path
   end
+
+  def feedback
+  end
 end
