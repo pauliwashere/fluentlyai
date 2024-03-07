@@ -21,6 +21,8 @@
 <div class = "input-field">
     <%= simple_form_for [@conversation, @user_message], html: {class: "d-flex"} do |f| %>
         <%= f.input :content, label: false, placeholder: "Write something here", wrapper_html: {class: "flex-grow-1"} %>
-        <%= f.submit "Send", class: "send-msg" %>
-    <% end %>
+        <%= f.button :button, class: "send-msg" do %>
+          <i class="fa-solid fa-paper-plane"></i>
+        <% end %>
+      <% end %>
 </div>

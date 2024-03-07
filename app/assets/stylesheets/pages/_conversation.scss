@@ -55,10 +55,19 @@
   height: fit-content;
   border-style: none;
   background-color: #10212E;
-  color: white;
   border-radius: 50%;
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   margin-left: 10px;
   margin-bottom: 10px;
+}
+.send-msg:hover {
+  background-color: #f5f5f5;
+}
+.fa-paper-plane {
+  color: white;
+}
+
+.fa-paper-plane:hover {
+  color: #10212E;
 }
