@@ -1,11 +1,7 @@
 <div class="chat-window">
   <div class="bot-msg">
     <%= @conversation.bot_messages.first.content %>
-      <% if @bot_message.audio.attached? %>
-        <%= audio_tag @bot_message.audio, controls: true %>
-        <% else %>
-          <p>No audio available</p>
-        <% end %>
+    <%= render "bot_audio_tag", bot_message: @conversation.bot_messages.first %>
 
   </div>
 
@@ -19,6 +15,7 @@
         <%= next_bot_message.content %>
       </div>
     <% end %>
+      <%= render "bot_audio_tag", bot_message: next_bot_message  %>
   <% end %>
 </div>
 <div class = "input-field">

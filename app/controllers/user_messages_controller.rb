@@ -1,5 +1,4 @@
 class UserMessagesController < ApplicationController
-
   def create
     @conversation = Conversation.find(params[:conversation_id])
     @bot_message = BotMessage.order(created_at: :desc).find_by(conversation: @conversation)

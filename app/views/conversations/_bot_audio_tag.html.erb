@@ -1,0 +1,13 @@
+<% if bot_message.audio.attached? %>
+    <div
+      data-controller="audio-player",
+      class= "d-none"
+      >
+      <% audio_player_data = { audio_player_target: (bot_message.id == @highest_bot_id ? "bot" : nil) } %>
+      <%= audio_tag bot_message.audio, controls: true, data: audio_player_data %>
+
+    </div>
+
+  <% else %>
+    <p>No audio available</p>
+  <% end %>

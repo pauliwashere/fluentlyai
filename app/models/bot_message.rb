@@ -36,8 +36,8 @@ class BotMessage < ApplicationRecord
         voice: "alloy"
       }
     )
-    File.binwrite('demo.mp3', response)
-    audio_content = File.read("demo.mp3")
+    File.binwrite("bot-audio.mp3", response)
+    audio_content = File.read("bot-audio.mp3")
     audio.attach(io: StringIO.new(audio_content), filename: "bot_audio_#{id}.mp3", content_type: "audio/mp3")
   end
 end

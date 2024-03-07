@@ -5,6 +5,7 @@ class ConversationsController < ApplicationController
     # @conversation.user = @user
     # @user = current_user
     @user_message = UserMessage.new
+    @highest_bot_id = @conversation.bot_messages.max { |bot_message| bot_message.id }.id
   end
 
   def create
@@ -15,12 +16,11 @@ class ConversationsController < ApplicationController
       @bot_message = BotMessage.new
       @bot_message.conversation = @conversation
       @bot_message.generate_content(@conversation.topic)
-      @bot_message.save
       @bot_message.generate_audio # place might change
+      @bot_message.save
       redirect_to conversation_path(@conversation)
     else
       render 'topics/index', status: :unprocessable_entity
     end
-
   end
 end
