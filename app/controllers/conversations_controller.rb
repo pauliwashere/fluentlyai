@@ -31,5 +31,7 @@ class ConversationsController < ApplicationController
   end
 
   def feedback
+    @conversation = Conversation.find(params[:id])
+    @feedback_messages = @conversation.user_messages.feedback
   end
 end

@@ -15,8 +15,12 @@ Rails.application.routes.draw do
     member do
       patch :end
     end
+
+    member do
+      get 'feedback', to: "conversations#feedback"
+    end
+
     resources :user_messages, only: %i[create]
-    resources :feedback, only: %i[feedback]
   end
 
   # Defines the root path route ("/")
