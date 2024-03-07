@@ -1,10 +1,12 @@
 <% if bot_message.audio.attached? %>
     <div
-      data-controller="audio-player"
+      data-controller="audio-player",
+      class= "d-none"
       >
-<%= audio_tag bot_message.audio, controls: true, data: { audio_player_bot_id_value: (@highest_bot_id if bot_message.id == @highest_bot_id) } %>
+      <% audio_player_data = { audio_player_target: (bot_message.id == @highest_bot_id ? "bot" : nil) } %>
+      <%= audio_tag bot_message.audio, controls: true, data: audio_player_data %>
+
     </div>
-    <%# <div data-controller="audio-player" data-audio-url="<%= rails_blob_path(@bot.audio) %>
 
   <% else %>
     <p>No audio available</p>

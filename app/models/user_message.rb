@@ -22,5 +22,6 @@ class UserMessage < ApplicationRecord
     bot = BotMessage.new(conversation: conversation)
     bot.save
     bot.generate_content_with_msg(content, messages)
+    bot.generate_audio
   end
 end

@@ -16,12 +16,11 @@ class ConversationsController < ApplicationController
       @bot_message = BotMessage.new
       @bot_message.conversation = @conversation
       @bot_message.generate_content(@conversation.topic)
-      @bot_message.save
       @bot_message.generate_audio # place might change
+      @bot_message.save
       redirect_to conversation_path(@conversation)
     else
       render 'topics/index', status: :unprocessable_entity
     end
-
   end
 end
