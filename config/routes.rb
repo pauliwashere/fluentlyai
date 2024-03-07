@@ -12,8 +12,12 @@ Rails.application.routes.draw do
   post 'users/set_language_level', to: 'users#set_language_level'
 
   resources :conversations, only: %i[show create] do
+    member do
+      patch :end
+    end
     resources :user_messages, only: %i[create]
   end
+
   # Defines the root path route ("/")
 
   # root "posts#index"

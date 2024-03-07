@@ -24,5 +24,6 @@
         <%= f.button :button, class: "send-msg" do %>
           <i class="fa-solid fa-paper-plane"></i>
         <% end %>
-      <% end %>
+        <%=link_to "End conversation", end_conversation_path(@conversation), data: { 'turbo-method': :patch }, class:"end-btn"%>
+    <% end %>
 </div>

@@ -23,4 +23,10 @@ class ConversationsController < ApplicationController
       render 'topics/index', status: :unprocessable_entity
     end
   end
+
+  def end
+    @my_current_conversation = Conversation.find(params[:id])
+    @my_current_conversation = false
+    redirect_to topics_path
+  end
 end
