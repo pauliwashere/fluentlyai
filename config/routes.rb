@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
+  resources :topics, only: %i[index]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -10,8 +11,10 @@ Rails.application.routes.draw do
   get 'users/choose_language_level', to: 'users#choose_language_level'
   post 'users/set_language_level', to: 'users#set_language_level'
 
-  resources :conversations, only: %i[show create]
-  # Defines the root path route ("/"); other explanation:  This line generates routes for only the show and create actions of the conversations controller. This means you can display individual conversations (show) and create new conversations (create), but you cannot list all conversations or perform other actions.
+  resources :conversations, only: %i[show create] do
+    resources :user_messages, only: %i[create]
+  end
+  # Defines the root path route ("/")
 
   # root "posts#index"
 
