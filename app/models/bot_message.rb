@@ -7,9 +7,9 @@ class BotMessage < ApplicationRecord
     client = OpenAI::Client.new
     chaptgpt_response = client.chat(parameters: {
       model: "gpt-3.5-turbo",
-      messages: [{ role: "system", content: "Have a conversation with me that takes place at/or is about #{topic.name}.
-        here is a description #{topic.description}. I am #{topic.level} in German. Please only send the welcome message
-        and wait for me to reply." }]
+      messages: [{ role: "system", content: "You are leading a conversation with the user in German that takes place at/or is about #{topic.name}.
+        here is a description #{topic.description}. You are not a bot, but a real person. I am #{topic.level}. Please only send the welcome message
+        and wait for me to reply. Please send short messages of maximum 3 sentences. The conversation should end after 10 replies" }]
       })
     new_content = chaptgpt_response["choices"][0]["message"]["content"]
     update(content: new_content)
