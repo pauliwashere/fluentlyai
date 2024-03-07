@@ -2,8 +2,17 @@
   <%= @bot.content %>
 </p>
 
-<% if @bot.audio.attached? %>
-  <%= audio_tag @bot.audio, controls: true %>
-<% else %>
-  <p>No audio available</p>
-<% end %>
+<div>
+
+  <% if @bot.audio.attached? %>
+    <div
+      data-controller="audio-player"
+      data-action="play->audio-player#fire">
+      <%= audio_tag @bot.audio, controls: true %>
+    </div>
+    <%# <div data-controller="audio-player" data-audio-url="<%= rails_blob_path(@bot.audio) %>
+
+  <% else %>
+    <p>No audio available</p>
+  <% end %>
+</div>
