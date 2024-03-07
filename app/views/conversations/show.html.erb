@@ -1,18 +1,26 @@
-<p>
-  <%= @bot.content %>
-</p>
+<div class="chat-window">
+  <div class="bot-msg">
+    <%= @conversation.bot_messages.first.content %>
+    <%= render "bot_audio_tag", bot_message: @conversation.bot_messages.first %>
 
-<div>
+  </div>
 
-  <% if @bot.audio.attached? %>
-    <div
-      data-controller="audio-player"
-      data-action="play->audio-player#fire">
-      <%= audio_tag @bot.audio, controls: true %>
+  <% @conversation.user_messages.each_with_index do |user_msg, index| %>
+    <div class="user-msg">
+      <%= user_msg.content %>
     </div>
-    <%# <div data-controller="audio-player" data-audio-url="<%= rails_blob_path(@bot.audio) %>
-
-  <% else %>
-    <p>No audio available</p>
+    <% next_bot_message = @conversation.bot_messages.find { |bot_msg| bot_msg.created_at > user_msg.created_at } %>
+    <% if next_bot_message %>
+      <div class="bot-msg">
+        <%= next_bot_message.content %>
+      </div>
+    <% end %>
+      <%= render "bot_audio_tag", bot_message: next_bot_message  %>
   <% end %>
+</div>
+<div class = "input-field">
+    <%= simple_form_for [@conversation, @user_message], html: {class: "d-flex"} do |f| %>
+        <%= f.input :content, label: false, placeholder: "Write something here", wrapper_html: {class: "flex-grow-1"} %>
+        <%= f.submit "Send", class: "send-msg" %>
+    <% end %>
 </div>
