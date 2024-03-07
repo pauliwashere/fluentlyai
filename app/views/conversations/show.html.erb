@@ -1,9 +1,29 @@
-<p>
-  <%= @bot.content %>
-</p>
+<div class="chat-window">
+  <div class="bot-msg">
+    <%= @conversation.bot_messages.first.content %>
+      <% if @bot_message.audio.attached? %>
+        <%= audio_tag @bot_message.audio, controls: true %>
+        <% else %>
+          <p>No audio available</p>
+        <% end %>
 
-<% if @bot.audio.attached? %>
-  <%= audio_tag @bot.audio, controls: true %>
-<% else %>
-  <p>No audio available</p>
-<% end %>
+  </div>
+
+  <% @conversation.user_messages.each_with_index do |user_msg, index| %>
+    <div class="user-msg">
+      <%= user_msg.content %>
+    </div>
+    <% next_bot_message = @conversation.bot_messages.find { |bot_msg| bot_msg.created_at > user_msg.created_at } %>
+    <% if next_bot_message %>
+      <div class="bot-msg">
+        <%= next_bot_message.content %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+<div class = "input-field">
+    <%= simple_form_for [@conversation, @user_message], html: {class: "d-flex"} do |f| %>
+        <%= f.input :content, label: false, placeholder: "Write something here", wrapper_html: {class: "flex-grow-1"} %>
+        <%= f.submit "Send", class: "send-msg" %>
+    <% end %>
+</div>
