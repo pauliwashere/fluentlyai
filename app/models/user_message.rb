@@ -13,11 +13,11 @@ class UserMessage < ApplicationRecord
 
     # Iterate through bot messages and user messages to construct the messages array
     bot_messages.each do |bot_message|
-      messages << { role: "system", content: bot_message.content }
+      messages << { role: "assistant", content: bot_message.content }
       associated_user_message = user_messages.find { |user_msg| user_msg.bot_message_id == bot_message.id }
       messages << { role: "user", content: associated_user_message.content } if associated_user_message
     end
-
+    
     # Create a new bot message and pass the messages array to generate content
     bot = BotMessage.new(conversation: conversation)
     bot.save
