@@ -21,4 +21,10 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
 
   # root "posts#index"
+
+  resources :topics, only: [:index, :show]
+  # This line generates routes for only the index and show actions of the conversations controller. This means you can display individual conversations (show) and list all conversations (index), but you cannot create new conversations or perform other actions.
+
+  resources :conversations, only: [:index, :show]
+  get 'choose_language_level', to: 'users#choose_language_level', as: 'choose_language_level'
 end

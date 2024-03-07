@@ -11,16 +11,23 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
+
+           <li class="nav-item">
+            <%= link_to "Topics", topics_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
+            <%= link_to "Levels", choose_language_level_path, class: "nav-link" %>
           </li>
+          <li class="nav-item">
+            <%= link_to "Conversations", conversations_path, class: "nav-link" %>
+          </li>
+
           <li class="nav-item dropdown">
-          <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
-          </a>
+             <% if current_user.photo.attached? %>
+              <%= cl_image_tag  current_user.photo.key, crop: :thumb, gravity: :face, class: "avatar dropdown-toggle", id: "navbarDropdown", 'data-bs-toggle': "dropdown", 'aria-haspopup': true, 'aria-expanded': false %>
+            <%else %>
+               <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", 'data-bs-toggle': "dropdown", 'aria-haspopup': true, 'aria-expanded': false %>
+            <%end %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Action", "#", class: "dropdown-item" %>
               <%= link_to "Another action", "#", class: "dropdown-item" %>
