@@ -1,4 +1,8 @@
 class ConversationsController < ApplicationController
+  def index
+    @conversations = current_user.conversations.order(created_at: :desc)
+  end
+
   def show
     @conversation = Conversation.find(params[:id])
     @bot_message = @conversation.bot_messages.last

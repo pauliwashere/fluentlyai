@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   get 'users/choose_language_level', to: 'users#choose_language_level'
   post 'users/set_language_level', to: 'users#set_language_level'
 
-  resources :conversations, only: %i[show create] do
+  resources :conversations, only: %i[index show create] do
     member do
       patch :end
     end

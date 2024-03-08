@@ -1,0 +1,67 @@
+
+
+.container.conversations {
+  margin-top: 20px !important;
+  text-align: center;
+}
+
+.container.conversations p {
+p{font-size: 20px;}
+}
+.conversation-wrapper {
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-content: center;
+}
+.conversation-item {
+  margin: 15px;
+  width: 500px;
+  height: auto; /* adjust the height to auto */
+  margin-bottom: 50px;
+  border: 2px solid #000000;
+  background-color: #f0f0f0; /* change to your preferred color */
+}
+.conversation-item ul li {
+  list-style: none;
+  padding: 0;
+  margin-right: 5px;
+}
+
+.conversation-details li a {
+  font-weight: bold;
+  text-decoration: none;
+  font: black //does not work yet, selector seems not to apply properly
+}
+
+.conversation-item .icon{
+ margin-bottom: 10px;
+}
+.category-selector {
+position: absolute;
+transform: scale(0);
+}
+.category-selector + label {
+display: block;
+cursor: pointer;
+box-sizing: border-box;
+width: 600px;
+font-size: 18px;
+text-align: center;
+font-weight: bold;
+padding: 50px 10px 50px 10px;
+border: 2px solid #000000;
+border-radius: 5px;
+background-color: #CEFFE0;
+}
+.category-selector:checked + label {
+color: #9505dd !important;
+}
+.submit-styling {
+background-color: #E4AFFF;
+font-weight: bold;
+padding: 20px;
+}
+:hover.submit-styling  {
+background-color: #70857E;
+}
