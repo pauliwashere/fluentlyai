@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     end
 
     member do
-      get 'feedback', to: "conversations#feedback"
+      get 'feedback', to: "conversations#feedback_display"
     end
 
     resources :user_messages, only: %i[create]

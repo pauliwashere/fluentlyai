@@ -1,0 +1,18 @@
+<div class="chat-window">
+  <div class="bot-msg">
+    <%= @conversation.bot_messages.first.content %>
+  </div>
+
+  <% @conversation.user_messages.each_with_index do |user_msg, index| %>
+    <div class="user-msg">
+      <%= user_msg.content %>
+      <%= user_msg.feedback %>
+    </div>
+    <% next_bot_message = @conversation.bot_messages.find { |bot_msg| bot_msg.created_at > user_msg.created_at } %>
+    <% if next_bot_message %>
+      <div class="bot-msg">
+        <%= next_bot_message.content %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

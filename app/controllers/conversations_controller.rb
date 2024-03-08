@@ -27,11 +27,11 @@ class ConversationsController < ApplicationController
   def end
     @my_current_conversation = Conversation.find(params[:id])
     @my_current_conversation = false
-    redirect_to topics_path
+    redirect_to feedback_conversation_path
   end
 
-  def feedback
+  def feedback_display
     @conversation = Conversation.find(params[:id])
-    @feedback_messages = @conversation.user_messages.feedback
+    @feedback_messages = @conversation.user_messages.generate_feedback if @conversation.user_messages.present?
   end
 end
