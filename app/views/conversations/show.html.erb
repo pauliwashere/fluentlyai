@@ -18,15 +18,17 @@
       <%= render "bot_audio_tag", bot_message: next_bot_message  %>
   <% end %>
 </div>
-<div class = "input-field">
-    <%= simple_form_for [@conversation, @user_message], html: {class: "d-flex"} do |f| %>
-        <%= f.input :content, label: false, placeholder: "Write something here", wrapper_html: {class: "flex-grow-1"} %>
-        <%= f.button :button, class: "send-msg" do %>
-          <i class="fa-solid fa-paper-plane"></i>
-        <% end %>
-        <%=link_to "End conversation", end_conversation_path(@conversation), data: { 'turbo-method': :patch }, class:"end-btn"%>
-    <% end %>
-</div>
-<div data-controller="audio-recording">
-  <button class="record-btn" data-audio-recording-target="recordButton" data-action="mousedown->audio-recording#startRecording mouseup->audio-recording#stopRecording"><i class="fa-solid fa-microphone"></i></button>
+<div class = "input-with-btns">
+  <div class = "input-field">
+      <%= simple_form_for [@conversation, @user_message], html: {class: "d-flex"} do |f| %>
+          <%= f.input :content, label: false, placeholder: "Write something here", wrapper_html: {class: "flex-grow-1"} %>
+          <%= f.button :button, class: "send-msg" do %>
+            <i class="fa-solid fa-paper-plane"></i>
+          <% end %>
+          <%=link_to "End conversation", end_conversation_path(@conversation), data: { 'turbo-method': :patch }, class:"end-btn"%>
+      <% end %>
+  </div>
+  <div class="record" data-controller="audio-recording">
+    <button class="record-btn" data-audio-recording-target="recordButton" data-action="mousedown->audio-recording#startRecording mouseup->audio-recording#stopRecording"><i class="fa-solid fa-microphone"></i></button>
+  </div>
 </div>

@@ -37,13 +37,7 @@
 }
 
 #new_user_message {
-  margin-left: 8%;
-  margin-right: 8%;
-  background-color: white;
-  border-radius: 0 0 10px 10px;
-  margin-bottom: 40px;
-  padding-left: 10px;
-  padding-right: 10px;
+
 }
 
 #user_message_content {
@@ -87,4 +81,18 @@
 
 .end-btn:hover {
   background-color: #CEFFE0;
+}
+
+.input-with-btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: baseline;
+  margin-left: 8%;
+  margin-right: 8%;
+
+  background-color: white;
+  border-radius: 0 0 10px 10px;
+  margin-bottom: 40px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
