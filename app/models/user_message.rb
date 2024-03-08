@@ -8,7 +8,7 @@ class UserMessage < ApplicationRecord
     messages = [{ role: "system", content: "You are leading a conversation with the user in German that takes place at/or is about #{conversation.topic.name}.
       here is a description #{conversation.topic.description}. You are not a bot, but a real person. I am #{conversation.topic.level}. Please only send the welcome message
       and wait for me to reply. Please send short messages of maximum 3 sentences. The conversation should end after 10 replies" }]
-    
+
     # Fetch all bot messages and user messages associated with the conversation
     bot_messages = BotMessage.where(conversation_id: conversation.id).order(created_at: :asc)
     user_messages = UserMessage.where(conversation_id: conversation.id).order(created_at: :asc)

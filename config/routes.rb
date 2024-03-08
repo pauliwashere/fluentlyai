@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
+
+  require "sidekiq/web"
+  authenticate :user, ->(user) { user.admin? } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
+
   resources :topics, only: %i[index]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -15,6 +21,11 @@ Rails.application.routes.draw do
     member do
       patch :end
     end
+
+    member do
+      get 'feedback', to: "conversations#feedback"
+    end
+
     resources :user_messages, only: %i[create]
   end
 
