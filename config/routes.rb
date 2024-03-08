@@ -27,4 +27,6 @@ Rails.application.routes.draw do
 
   resources :conversations, only: [:index, :show]
   get 'choose_language_level', to: 'users#choose_language_level', as: 'choose_language_level'
+
+  post "process_audio", to: "user_messages#process_audio"
 end

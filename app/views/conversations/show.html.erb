@@ -28,5 +28,5 @@
     <% end %>
 </div>
 <div data-controller="audio-recording">
-  <button data-action="mousedown->audio-recording#startRecording" data-target="audio.recordButton">Record</button>
+  <button class="record-btn" data-audio-recording-target="recordButton" data-action="mousedown->audio-recording#startRecording mouseup->audio-recording#stopRecording"><i class="fa-solid fa-microphone"></i></button>
 </div>
