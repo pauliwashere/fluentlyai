@@ -30,8 +30,7 @@ class ConversationsController < ApplicationController
     redirect_to feedback_conversation_path
   end
 
-  def feedback_display
+  def feedback
     @conversation = Conversation.find(params[:id])
-    @feedback_messages = @conversation.user_messages.generate_feedback if @conversation.user_messages.present?
   end
 end
