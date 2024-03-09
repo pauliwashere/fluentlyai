@@ -1,5 +1,4 @@
 class UserMessage < ApplicationRecord
-  before_save :generate_text
   after_save :generate_bot
 
   belongs_to :conversation

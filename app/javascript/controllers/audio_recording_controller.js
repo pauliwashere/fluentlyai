@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="audio-recording"
 export default class extends Controller {
-  static targets = ["recordButton"]
+  static targets = ["recordButton", "input"]
 
   connect() {
     this.recording = false;
@@ -20,7 +20,7 @@ export default class extends Controller {
 
         this.mediaRecorder.start();
         this.recording = true;
-        this.recordButtonTarget.textContent = "Recording...";
+        // this.recordButtonTarget.textContent = "Recording...";
         setTimeout(() => this.mediaRecorder.stop(), 10000); // Stop recording after 10 seconds
 
         this.mediaRecorder.addEventListener("stop", () => {
@@ -39,7 +39,7 @@ export default class extends Controller {
     if (this.mediaRecorder) {
       this.mediaRecorder.stop();
       this.recording = false;
-      this.recordButtonTarget.textContent = "Record"; // Update button text
+      // this.recordButtonTarget.textContent = "Record"; // Update button text
 
     }
   }
@@ -60,7 +60,12 @@ export default class extends Controller {
       body: formData
     })
     .then(response => response.text())
-    .then(data => console.log(data))
+    .then(data => {
+      console.log(data);
+      const text = data;
+      this.inputTarget.value = text;
+      console.log(this.inputTarget.value)
+      })
     .catch(error => console.error("Error processing audio:", error));
   }
 }
