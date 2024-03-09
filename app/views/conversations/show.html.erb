@@ -1,4 +1,8 @@
 <div class="chat-window">
+  <div class="chat-topic">
+    <h3><%= @conversation.topic.name %></h3>
+    <p><%= @conversation.topic.level %></p>
+  </div>
   <div class="bot-msg">
     <%= @conversation.bot_messages.first.content %>
     <%= render "bot_audio_tag", bot_message: @conversation.bot_messages.first %>
@@ -25,10 +29,10 @@
           <%= f.button :button, class: "send-msg" do %>
             <i class="fa-solid fa-paper-plane"></i>
           <% end %>
-          <%=link_to "End conversation", end_conversation_path(@conversation), data: { 'turbo-method': :patch }, class:"end-btn"%>
       <% end %>
   </div>
   <div class="record" data-controller="audio-recording">
     <button class="record-btn" data-audio-recording-target="recordButton" data-action="mousedown->audio-recording#startRecording mouseup->audio-recording#stopRecording"><i class="fa-solid fa-microphone"></i></button>
   </div>
+  <%=link_to "End conversation", end_conversation_path(@conversation), data: { 'turbo-method': :patch }, class:"end-btn"%>
 </div>
