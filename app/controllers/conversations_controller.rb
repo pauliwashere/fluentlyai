@@ -1,4 +1,8 @@
 class ConversationsController < ApplicationController
+  def index
+    @conversations = current_user.conversations.order(created_at: :desc)
+  end
+
   def show
     @conversation = Conversation.find(params[:id])
     @bot_message = @conversation.bot_messages.last
@@ -27,6 +31,10 @@ class ConversationsController < ApplicationController
   def end
     @my_current_conversation = Conversation.find(params[:id])
     @my_current_conversation = false
-    redirect_to topics_path
+    redirect_to feedback_conversation_path
+  end
+
+  def feedback
+    @conversation = Conversation.find(params[:id])
   end
 end
