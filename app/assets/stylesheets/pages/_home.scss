@@ -2,3 +2,27 @@
 body {
   background-color: #FFE3E2;
 }
+
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh; /* adjust as needed */
+  padding-top: 50px; /* adjust as needed */
+}
+
+.centered-logo {
+  width: 300px; /* adjust as needed */
+  margin-bottom: 20px; /* adjust as needed */
+}
+
+.description {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: auto;
+  text-align: justify;
+  width: 300px; /* same as logo width */
+}
+
