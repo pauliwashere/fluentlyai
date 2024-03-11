@@ -18,19 +18,29 @@ class UserMessagesController < ApplicationController
 
   def process_audio
     audio_file = params[:audio] # Access the uploaded file object
+    # file = Tempfile.new("audio")
+    # file = Tempfile.new(["#{audio_file.original_filename}", ".mp3"]) do |file|
+    #   file.binmode
+    #   file.write(audio_file.read)
+    #   file.rewind
+    # end
     file = File.open(Rails.root.join('public', "#{audio_file.original_filename}.mp3"), 'wb') do |file|
       file.write(audio_file.read)
     end
+
     client = OpenAI::Client.new
     response = client.audio.transcribe(
       parameters: {
         model: "whisper-1",
         file: File.open("#{Rails.root}/public/blob.mp3", "rb"),
       })
+    File.delete("#{Rails.root}/public/blob.mp3")
     respond_to  do |format|
         format.html
         format.text {render( plain: response["text"])}
     end
+    # File.delete("#{audio_file.original_filename}.mp3")
+    # File.open("#{Rails.root}/public/blob.mp3", "rb"),
   end
 
   private
