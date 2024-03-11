@@ -8,8 +8,9 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 80px;
+  width: 150px;
   background-color: transparent;
+  margin-left: 20px;
 }
 
 .nav-link-text {
@@ -22,4 +23,13 @@
 
 .navbar {
   background-color:  #FFE3E2;
+}
+
+.nav-item {
+  margin-right: 20px;
+}
+
+.avatar {
+  width: 80px; /* adjust the value as needed */
+
 }
