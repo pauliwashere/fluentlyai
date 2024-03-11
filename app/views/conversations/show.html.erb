@@ -1,7 +1,8 @@
-<div class="chat-window">
+<div class="chat-window"  id="chat">
   <div class="chat-topic">
     <h3><%= @conversation.topic.name %></h3>
     <p><%= @conversation.topic.level %> level</p>
+    <button data-action="click->conversation-window-scrolling#scroll"></button>
   </div>
   <div class="bot-msg">
     <%= @conversation.bot_messages.first.content %>
@@ -24,12 +25,15 @@
 </div>
 <div class = "input-with-btns" data-controller="audio-recording">
   <div class = "input-field">
-    <%= simple_form_for [@conversation, @user_message], html: {class: "d-flex" } do |f| %>
+
+    <%= simple_form_for [@conversation, @user_message], html: {class: "d-flex", data: { controller: 'conversation-window-scrolling', action: "submit->conversation-window-scrolling#scroll"}} do |f| %>
         <%= f.input :content, label: false, placeholder: "Press and hold the record button to start recording a message", class: "user-msg-field", wrapper_html: {class: "flex-grow-1"}, input_html: { data: { target: 'audio-recording.input' }} %>
         <%= f.button :button, id: "send-msg" do %>
           <i class="fa-solid fa-paper-plane"></i>
         <% end %>
     <% end %>
+
+
   </div>
   <div class="record" >
     <button class="record-btn" data-audio-recording-target="recordButton" data-action="mousedown->audio-recording#startRecording mouseup->audio-recording#stopRecording"><i class="fa-solid fa-microphone"></i></button>
