@@ -4,6 +4,8 @@ class UserMessage < ApplicationRecord
   belongs_to :conversation
   belongs_to :bot_message
 
+  has_one_attached :audio
+
   def generate_bot
     messages = [{ role: "system", content: "You are leading a conversation with the user in German that takes place at/or is about #{conversation.topic.name}.
       here is a description #{conversation.topic.description}. You are not a bot, but a real person. I am #{conversation.topic.level}. Please only send the welcome message
@@ -26,4 +28,6 @@ class UserMessage < ApplicationRecord
     bot.generate_content_with_msg(content, messages)
     bot.generate_audio
   end
+
+
 end
