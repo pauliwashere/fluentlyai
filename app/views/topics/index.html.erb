@@ -1,22 +1,30 @@
-<div class="container topics" >
+<div class="container topics">
   <h1>Topics</h1>
   <p>Awesome! Your level is a <%= @user.level %>.</p>
-  <p> Please choose a topic you would like to talk about.</p>
+  <p>Please choose a topic you would like to talk about.</p>
   <div class="container-cards category-wrapper">
-    <div class="card-category category-item">
-         <%= simple_form_for @conversation do |f|%>
-          <%= f.association :topic,
-            as: :radio_buttons,
-            collection_wrapper_tag: 'div',
-            collection_wrapper_class: 'category-wrapper',
-            item_wrapper_class: 'category-item',
-            input_html: {class: 'category-selector'},
-            collection: Topic.all.pluck(:name, :id),
-            legend_tag: false%>
-          <%= f.button :submit, value: "Start Conversation", :class => "submit-styling"%>
-          <% end %>
-    </div>
+      <% Topic.all.each do |topic| %>
+        <div class="card-category category-item">
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <%= simple_form_for @conversation, html: { id: 'conversation_form' } do |f| %>
+                  <%= f.radio_button :topic_id, topic.id, class: 'category-selector visually-hidden' %>
+                  <%= f.label topic.name %>
+                <% end %>
+              </div>
+              <div class="flip-card-back">
+                <%= simple_form_for @conversation, html: { id: 'conversation_form', data: { controller: 'form-submit', action: 'change->form-submit#submit' } } do |f| %>
+                <%= f.radio_button :topic_id, topic.id, class: 'category-selector visually-hidden' %>
+                <% end %>
+                <h3>Description</h3>
+                <p><%= topic.description %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
 
   </div>
-
 </div>
