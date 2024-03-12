@@ -2,8 +2,17 @@
     margin-top: 20px !important;
     text-align: center;
 }
+
 .container.topics {
-  p{font-size: 20px;}
+  h1{font-family: "Lexend Tera";
+     font-weight:40px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    }
+}
+.container.topics {
+  p{font-size: 20px;
+    font-family: "Poppins"}
 }
 .category-wrapper {
   display: flex;
@@ -15,9 +24,10 @@
 .category-item {
   flex: auto;
   margin: 15px;
-  width: 500px;
+  width: 400px;
   height:100px;
   margin-bottom: 50px;
+  font-family: "Poppins";
 }
 
 .category-selector {
@@ -29,7 +39,7 @@
   display: block;
   cursor: pointer;
   box-sizing: border-box;
-  width: 600px;
+  width: 500px;
   font-size: 18px;
   text-align: center;
   font-weight: bold;
