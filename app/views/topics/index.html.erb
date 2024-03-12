@@ -13,9 +13,9 @@
                   <%= f.label topic.name %>
                 <% end %>
               </div>
-              <div class="flip-card-back">
-                <%= simple_form_for @conversation, html: { id: 'conversation_form', data: { controller: 'form-submit', action: 'change->form-submit#submit' } } do |f| %>
-                <%= f.radio_button :topic_id, topic.id, class: 'category-selector visually-hidden' %>
+              <div class="flip-card-back" data-controller='form-submit' data-action='click->form-submit#submit'>
+                <%= simple_form_for @conversation, html: { data: {  form_submit_target: 'form' } } do |f| %>
+                <%= f.input :topic_id, as: :hidden, input_html: {value: topic.id}, class: 'category-selector visually-hidden' %>
                 <% end %>
                 <h3>Description</h3>
                 <p><%= topic.description %></p>
@@ -28,3 +28,9 @@
 
   </div>
 </div>
+
+<%# <style>
+   .category-selector label:hover::before  {
+    content: "New Text Here";
+  }
+</style> %>

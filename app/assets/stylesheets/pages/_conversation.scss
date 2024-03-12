@@ -1,6 +1,6 @@
 .chat-window {
   display: grid;
-  min-height: 70vh;
+  max-height: 80vh;
   // to be checked before go live
   grid-template-rows: auto 1fr auto;
   margin: 8%;
@@ -8,6 +8,7 @@
   margin-bottom: 0;
   background-color: #ffffff;
   border-radius: 10px 10px 0 0;
+  overflow-y: scroll;
 }
 
 .bot-msg {
@@ -23,7 +24,19 @@
   font-family: "Poppins";
 }
 
-.user-msg {
+.msgs {
+  display: grid;
+  // flex-direction: column;
+  // to be checked before go live
+  grid-template-rows: auto 1fr auto;
+
+  margin-top: 0;
+  margin-bottom: 0;
+  background-color: #ffffff;
+  border-radius: 10px 10px 0 0;
+}
+
+.msgs > .user-msg {
   background-color: #E4AFFF;
   border: #10212E 1px solid;
   border-radius: 10px;
@@ -49,12 +62,14 @@
   margin-left: 10px;
   margin-right: 10px;
   width: 99%;
+  margin-top: 5px;
 }
 .user-msg-field {
   margin-right: 20px;
 }
 
 #send-msg {
+  margin-top: 5px;
   height: fit-content;
   border-style: none;
   background-color: #10212E;
@@ -77,6 +92,7 @@
 }
 
 .end-btn {
+  margin-top: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -106,7 +122,6 @@
   justify-content: stretch;
   margin-left: 8%;
   margin-right: 8%;
-
   background-color: white;
   border-radius: 0 0 10px 10px;
   margin-bottom: 40px;
@@ -119,6 +134,7 @@
 }
 
 .record-btn {
+  margin-top: 5px;
   height: 40px;
   width: 40px;
   border-radius: 50%;
@@ -170,4 +186,10 @@
   color: #10212E;
   font-size: 24px;
   font-weight:bolder;
+}
+
+.fa-volume-up {
+  font-size: 16px;
+  margin-left: 0;
+  margin-top: 10px;
 }

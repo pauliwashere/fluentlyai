@@ -2,8 +2,17 @@
     margin-top: 20px !important;
     text-align: center;
 }
+
 .container.topics {
-  p{font-size: 20px;}
+  h1{font-family: "Lexend Tera";
+     font-weight:40px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    }
+}
+.container.topics {
+  p{font-size: 20px;
+    font-family: "Poppins"}
 }
 .category-wrapper {
   display: flex;
@@ -73,6 +82,7 @@
   width: 500px;
   height:100px;
   margin-bottom: 250px;
+  font-family: "Poppins";
 }
 
 .category-selector {
