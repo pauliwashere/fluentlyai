@@ -65,3 +65,31 @@ padding: 20px;
 :hover.submit-styling  {
 background-color: #70857E;
 }
+
+body { /* or the parent container of .chat-window and .input-with-btns */
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* ensure it takes up full viewport height */
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  /* other styles */
+}
+
+.chat-window {
+  flex: 1; /* take up all available space */
+  overflow-y: auto; /* make it scrollable */
+  /* other styles... */
+}
+
+.input-with-btns {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 100;
+  /* other styles */
+}

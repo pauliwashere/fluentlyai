@@ -1,6 +1,8 @@
 .chat-window {
   display: grid;
-  min-height: 70vh;
+  min-height: 100vh;
+  max-height: 100vh; // add this line
+  overflow-y: auto; // add this line
   // to be checked before go live
   grid-template-rows: auto 1fr auto;
   margin: 8%;
@@ -101,15 +103,15 @@
 }
 
 .input-with-btns {
+  position: fixed; // add this line
+  bottom: 0; // add this line
+  left: 8%; // add this line
+  right: 8%; // add this line
   display: flex;
   flex-direction: row;
   justify-content: stretch;
-  margin-left: 8%;
-  margin-right: 8%;
-
   background-color: white;
   border-radius: 0 0 10px 10px;
-  margin-bottom: 40px;
   padding-left: 10px;
   padding-right: 10px;
 }
