@@ -5,7 +5,7 @@
     <button data-action="click->conversation-window-scrolling#scroll"></button>
   </div>
   <div class="bot-msg">
-    <%= @conversation.bot_messages.first.content %>
+    <%= @conversation.bot_messages.order('created_at ASC').first.content %>
     <%= render "bot_audio_tag", bot_message: @conversation.bot_messages.first %>
   </div>
 

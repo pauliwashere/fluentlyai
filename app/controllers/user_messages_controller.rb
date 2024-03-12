@@ -9,7 +9,7 @@ class UserMessagesController < ApplicationController
     @user_message.bot_message = @bot_message
     if @user_message.save
       # @bot_message.generate_content_with_msg(@user_message)
-      FeedbackJob.perform_later(@user_message)
+      FeedbackJob.perform_later(@user_message, @bot_message)
       redirect_to conversation_path(@conversation)
     else
       render "conversations/show", status: :unprocessable_entity
