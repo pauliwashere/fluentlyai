@@ -1,9 +1,8 @@
 .chat-window {
   display: grid;
   min-height: 100vh;
-  max-height: 100vh; // add this line
-  overflow-y: auto; // add this line
-  // to be checked before go live
+  max-height: 100vh;
+  overflow-y: auto;
   grid-template-rows: auto 1fr auto;
   margin: 8%;
   margin-top: 0;
