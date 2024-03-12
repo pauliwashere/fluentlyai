@@ -23,7 +23,18 @@
   font-family: "Poppins";
 }
 
-.user-msg {
+.msgs {
+  display: grid;
+  min-height: 70vh;
+  // to be checked before go live
+  grid-template-rows: auto 1fr auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  background-color: #ffffff;
+  border-radius: 10px 10px 0 0;
+}
+
+.msgs > .user-msg {
   background-color: #E4AFFF;
   border: #10212E 1px solid;
   border-radius: 10px;

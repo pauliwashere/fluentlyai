@@ -7,12 +7,14 @@ class UserMessagesController < ApplicationController
     @user_message = UserMessage.new(user_message_params)
     @user_message.conversation = @conversation
     @user_message.bot_message = @bot_message
-    if @user_message.save
-      # @bot_message.generate_content_with_msg(@user_message)
-      FeedbackJob.perform_later(@user_message, @bot_message)
-      redirect_to conversation_path(@conversation)
-    else
-      render "conversations/show", status: :unprocessable_entity
+    respond_to do |format|
+      if @user_message.save
+        format.html { redirect_to conversation_path }
+        format.text { render partial: "conversations/user_bot_msg", locals: { user_message: @user_message }, formats: [:html] }
+        FeedbackJob.perform_later(@user_message, @bot_message)
+      else
+        format.html { render "conversations/show", status: :unprocessable_entity }
+      end
     end
   end
 
