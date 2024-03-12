@@ -13,6 +13,7 @@ class UserMessage < ApplicationRecord
 
     # Fetch all bot messages and user messages associated with the conversation
     bot_messages = BotMessage.where(conversation_id: conversation.id).order(created_at: :asc)
+    raise
     user_messages = UserMessage.where(conversation_id: conversation.id).order(created_at: :asc)
 
     # Iterate through bot messages and user messages to construct the messages array
