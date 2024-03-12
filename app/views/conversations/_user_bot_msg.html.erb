@@ -7,8 +7,9 @@
       <% if next_bot_message %>
         <div class="bot-msg">
           <%= next_bot_message.content %>
+          <%= render "conversations/bot_audio_tag", bot_message: next_bot_message  %>
         </div>
       <% end %>
-        <%= render "conversations/bot_audio_tag", bot_message: next_bot_message  %>
+
     <% end %>
 </div>
