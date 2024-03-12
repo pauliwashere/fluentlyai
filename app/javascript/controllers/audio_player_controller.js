@@ -5,6 +5,7 @@ export default class extends Controller {
   static targets = ["bot"]
 
   connect() {
+    console.log("Should play")
     this.botTarget.play()
   }
 }

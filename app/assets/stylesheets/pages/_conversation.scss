@@ -1,6 +1,6 @@
 .chat-window {
   display: grid;
-  min-height: 70vh;
+  max-height: 80vh;
   // to be checked before go live
   grid-template-rows: auto 1fr auto;
   margin: 8%;
@@ -8,6 +8,7 @@
   margin-bottom: 0;
   background-color: #ffffff;
   border-radius: 10px 10px 0 0;
+  overflow-y: scroll;
 }
 
 .bot-msg {
@@ -25,9 +26,10 @@
 
 .msgs {
   display: grid;
-  min-height: 70vh;
+  // flex-direction: column;
   // to be checked before go live
   grid-template-rows: auto 1fr auto;
+
   margin-top: 0;
   margin-bottom: 0;
   background-color: #ffffff;

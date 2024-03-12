@@ -10,7 +10,7 @@ export default class extends Controller {
 
   scroll(event) {
     event.preventDefault();
-    console.log("Woooho")
+    this.formTarget.disabled = true;
 
     fetch(this.formTarget.action, {
       method: "POST", // Could be dynamic with Stimulus values
@@ -22,7 +22,11 @@ export default class extends Controller {
         console.log(data)
         this.conversationTarget.outerHTML = data
         this.inputTarget.value = ""
-      })
+        // this.conversationTarget.scrollTo(0, this.conversationTarget.scrollBottom);
+        var objDiv = document.getElementById("chat");
+        objDiv.scrollTop = objDiv.scrollHeight;
+      });
+    this.formTarget.disabled = false;
   }
 
 }
