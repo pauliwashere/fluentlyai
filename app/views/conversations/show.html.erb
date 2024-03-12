@@ -23,12 +23,12 @@
       <%= render "bot_audio_tag", bot_message: next_bot_message  %>
   <% end %>
 </div>
-<div class = "input-with-btns" data-controller="audio-recording">
+<div class = "input-with-btns" data-controller="audio-recording conversation-window-scrolling">
   <div class = "input-field">
 
-    <%= simple_form_for [@conversation, @user_message], html: {class: "d-flex", data: { controller: 'conversation-window-scrolling', action: "submit->conversation-window-scrolling#scroll"}} do |f| %>
-        <%= f.input :content, label: false, placeholder: "Press and hold the record button to start recording a message", class: "user-msg-field", wrapper_html: {class: "flex-grow-1"}, input_html: { data: { target: 'audio-recording.input' }} %>
-        <%= f.button :button, id: "send-msg" do %>
+    <%= simple_form_for [@conversation, @user_message], html: {class: "d-flex"} do |f| %>
+        <%= f.input :content, label: false, placeholder: "Press and hold the record button to start recording a message", class: "user-msg-field", wrapper_html: {class: "flex-grow-1"}, input_html: { data: { target: 'audio-recording.input'}} %>
+        <%= f.button :button, id: "send-msg", data: { action: "turbo:submit-end->conversation-window-scrolling#scroll"} do %>
           <i class="fa-solid fa-paper-plane"></i>
         <% end %>
     <% end %>
