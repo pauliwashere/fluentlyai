@@ -18,12 +18,6 @@ class UserMessagesController < ApplicationController
 
   def process_audio
     audio_file = params[:audio] # Access the uploaded file object
-    # file = Tempfile.new("audio")
-    # file = Tempfile.new(["#{audio_file.original_filename}", ".mp3"]) do |file|
-    #   file.binmode
-    #   file.write(audio_file.read)
-    #   file.rewind
-    # end
     file = File.open(Rails.root.join('public', "#{audio_file.original_filename}.mp3"), 'wb') do |file|
       file.write(audio_file.read)
     end
