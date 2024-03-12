@@ -5,10 +5,10 @@ export default class extends Controller {
   static targets = ["form", "input", "conversation"]
 
   connect() {
-    console.log("hello")
+
   }
 
-  scroll(event) {
+  insertMsg(event) {
     event.preventDefault();
     this.formTarget.disabled = true;
 
@@ -19,10 +19,8 @@ export default class extends Controller {
     })
       .then(response => response.text())
       .then((data) => {
-        console.log(data)
         this.conversationTarget.outerHTML = data
         this.inputTarget.value = ""
-        // this.conversationTarget.scrollTo(0, this.conversationTarget.scrollBottom);
         var objDiv = document.getElementById("chat");
         objDiv.scrollTop = objDiv.scrollHeight;
       });
