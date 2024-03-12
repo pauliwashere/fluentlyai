@@ -6,7 +6,6 @@
   <div class="bot-msg">
     <%= @conversation.bot_messages.order('created_at ASC').first.content %>
     <%= render "bot_audio_tag", bot_message: @conversation.bot_messages.first %>
-
   </div>
 
   <% @conversation.user_messages.each_with_index do |user_msg, index| %>
@@ -17,9 +16,9 @@
     <% if next_bot_message %>
       <div class="bot-msg">
         <%= next_bot_message.content %>
+        <%= render "bot_audio_tag", bot_message: next_bot_message  %>
       </div>
     <% end %>
-      <%= render "bot_audio_tag", bot_message: next_bot_message  %>
   <% end %>
 </div>
 <div class = "input-with-btns" data-controller="audio-recording">
