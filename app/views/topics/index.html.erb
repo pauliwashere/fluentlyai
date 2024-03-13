@@ -1,6 +1,6 @@
 <div class="container topics">
   <h1>Topics</h1>
-  <p>Awesome! Your level is a <%= @user.level %>.</p>
+  <p>Awesome! Your level is: <strong><%= @user.level.downcase %></strong>.</p>
   <p>Please choose a topic you would like to talk about.</p>
   <div class="container-cards category-wrapper">
       <% @topics.where(level: @user.level).each do |topic| %>
@@ -10,8 +10,13 @@
               <div class="flip-card-front">
                 <%= simple_form_for @conversation, html: { id: 'conversation_form' } do |f| %>
                   <%= f.radio_button :topic_id, topic.id, class: 'category-selector visually-hidden' %>
-                  <%= f.label topic.name %>
+                  <%= f.label topic.name, class:"topic-name"%>
                 <% end %>
+                <div class="topic-pic">
+                <% if topic.picture.attached? %>
+                  <%= image_tag topic.picture, class:"pic"%>
+                <% end %>
+                </div>
               </div>
               <div class="flip-card-back" data-controller='form-submit' data-action='click->form-submit#submit'>
                 <%= simple_form_for @conversation, html: { data: {  form_submit_target: 'form' } } do |f| %>

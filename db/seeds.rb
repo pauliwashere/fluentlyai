@@ -43,9 +43,42 @@ hospital = Topic.create(name: "Hospital", description: "Conversation happens at 
 puppy_joga = Topic.create(name: "Puppy joga", description: "Conversation happens at a puppy yoga school, you talk to another person exercising", level: "Beginner")
 
 # Topics intermediate
-hiking = Topic.create(name: "Hike in Bavarian mountains", description: "Conversation happens during a hike between you and another hiker", level: "Intermediate")
-travel = Topic.create(name: "Your dream trip", description: "Conversation happens between you and another person who loves travelling", level: "Intermediate")
+hiking_url = "app/assets/images/hiking.png"
+hiking = Topic.new(name: "Hike in Bavarian mountains", description: "Conversation happens during a hike between you and another hiker", level: "Intermediate")
+hiking.picture.attach(io: URI.open(hiking_url), filename: "nes1.png", content_type: "image/png")
+hiking.save
+
+movie_url = "app/assets/images/cinema.png"
 movie = Topic.create(name: "Last time at a cinema", description: "Conversation with your friend about last movie you watched", level: "Intermediate")
-tv_show = Topic.create(name: "Favorite guilty pleasure tv show", description: "Conversation happens between you and your best friend", level: "Intermediate")
+movie.picture.attach(io: URI.open(movie_url), filename: "nes1.png", content_type: "image/png")
+movie.save
+
+travel_url = "app/assets/images/travel.png"
+travel = Topic.create(name: "Your dream trip", description: "Conversation happens between you and another person who loves travelling", level: "Intermediate")
+travel.picture.attach(io: URI.open(travel_url), filename: "nes1.png", content_type: "image/png")
+travel.save
+
+kvr_url = "app/assets/images/office.png"
+kvr = Topic.create(name: "Visit at the KVR", description: "Conversation happens between you and an officer at the Regional Administrative Office", level: "Intermediate")
+kvr.picture.attach(io: URI.open(kvr_url), filename: "nes1.png", content_type: "image/png")
+kvr.save
+
+tvshow_url = "app/assets/images/tvshow.png"
+tv_show = Topic.create(name: "Guilty pleasure tv show", description: "Conversation happens between you and your best friend", level: "Intermediate")
+tv_show.picture.attach(io: URI.open(tvshow_url), filename: "nes1.png", content_type: "image/png")
+tv_show.save
+
+tax_url = "app/assets/images/tax.png"
+tax = Topic.create(name: "Filling a tax declaration", description: "Conversation happens between you and a German accountant", level: "Intermediate")
+tax.picture.attach(io: URI.open(tax_url), filename: "nes1.png", content_type: "image/png")
+tax.save
+
+healthy_lifestyle_url = "app/assets/images/fitness.png"
 healthy_lifestyle = Topic.create(name: "Healthy routine", description: "Conversation about a healthy lifestyle that happens at a gym, you talk to another person exercising", level: "Intermediate")
+healthy_lifestyle.picture.attach(io: URI.open(healthy_lifestyle_url), filename: "nes1.png", content_type: "image/png")
+healthy_lifestyle.save
+
+art_url = "app/assets/images/museum.png"
 art = Topic.create(name: "Modern art exhibition", description: "Conversation about a modern art exhibition in your cityhappens at a gym with your friend", level: "Intermediate")
+art.picture.attach(io: URI.open(art_url), filename: "nes1.png", content_type: "image/png")
+art.save
