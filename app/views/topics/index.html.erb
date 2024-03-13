@@ -3,7 +3,7 @@
   <p>Awesome! Your level is a <%= @user.level %>.</p>
   <p>Please choose a topic you would like to talk about.</p>
   <div class="container-cards category-wrapper">
-      <% Topic.all.each do |topic| %>
+      <% @topics.where(level: @user.level).each do |topic| %>
         <div class="card-category category-item">
           <div class="flip-card">
             <div class="flip-card-inner">
