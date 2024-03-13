@@ -14,7 +14,15 @@
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  margin-top: 25px;
+  align-items: center;
+  margin-left: 8%;
+  margin-right: 8%;
+  background-color: white;
+  border-radius: 0 0 10px 10px;
+  margin-bottom: 40px;
+  padding-left: 10px;
+  padding-right: 10px;
+  height:90px;
 }
 
 .topic-btn {

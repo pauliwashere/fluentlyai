@@ -6,7 +6,6 @@
     </div>
     <div class="bot-msg">
       <%= @conversation.bot_messages.order('created_at ASC').first.content %>
-      <%= render "bot_audio_tag", bot_message: @conversation.bot_messages.first %>
     </div>
 
     <div class="msgs" data-insert-msg-target="conversation">
@@ -23,7 +22,6 @@
           <% if next_bot_message %>
             <div class="bot-msg">
               <%= next_bot_message.content %>
-              <%= render "conversations/bot_audio_tag", bot_message: next_bot_message  %>
             </div>
           <% end %>
 
