@@ -8,6 +8,7 @@
 .container.conversations p {
 p{font-size: 20px;}
 }
+
 .conversation-wrapper {
 display: flex;
 flex-direction: column;
@@ -20,7 +21,8 @@ align-content: center;
   height: auto; /* adjust the height to auto */
   margin-bottom: 50px;
   border: 2px solid #000000;
-  background-color: #f0f0f0; /* change to your preferred color */
+    background-color: #CEFFE0; // applied background color
+  border-radius: 5px;
 }
 .conversation-item ul li {
   list-style: none;
