@@ -1,6 +1,10 @@
 class ConversationsController < ApplicationController
   def index
     @conversations = current_user.conversations.order(created_at: :desc)
+    @topics = @conversations.group_by { |c| c.topic.name }.transform_values(&:count)
+    @conversations_per_week = @conversations.where("created_at >= ?", 10.weeks.ago)
+      .group_by { |c| c.created_at.beginning_of_week }
+      .transform_values(&:count)
   end
 
   def show
