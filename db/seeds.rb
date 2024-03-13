@@ -40,7 +40,7 @@ airport = Topic.create(name: "Airport", description: "Conversation happens at th
 restaurant = Topic.create(name: "Restaurant", description: "Conversation happens at the restaurant between you and the waitress", level: "Beginner")
 directions = Topic.create(name: "Directions", description: "Conversation happens at the street between you and forigner asking for directions", level: "Beginner")
 hospital = Topic.create(name: "Hospital", description: "Conversation happens at the hospital between you and the receptionist", level: "Beginner")
-puppy_joga = Topic.create(name: "Puppy joga", description: "Conversation happens at a puppy yoga school, you talk to another person exercising", level: "Intermediate")
+puppy_joga = Topic.create(name: "Puppy joga", description: "Conversation happens at a puppy yoga school, you talk to another person exercising", level: "Beginner")
 
 # Topics intermediate
 hiking = Topic.create(name: "Hike in Bavarian mountains", description: "Conversation happens during a hike between you and another hiker", level: "Intermediate")
