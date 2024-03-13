@@ -35,6 +35,10 @@ class ConversationsController < ApplicationController
   def end
     @my_current_conversation = Conversation.find(params[:id])
     @my_current_conversation = false
-    redirect_to topics_path
+    redirect_to feedback_conversation_path
+  end
+
+  def feedback
+    @conversation = Conversation.find(params[:id])
   end
 end

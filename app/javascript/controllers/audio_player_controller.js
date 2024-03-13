@@ -1,10 +1,19 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="audio-player"
 export default class extends Controller {
   static targets = ["bot"]
 
   connect() {
+    const allAudioElements = document.querySelectorAll('audio');
+    const lastAudioElement = allAudioElements[allAudioElements.length - 1];
+
+    if (this.botTarget === lastAudioElement) {
+      this.botTarget.play();
+    }
+  }
+
+  replay() {
+    this.botTarget.currentTime = 0
     this.botTarget.play()
   }
 }

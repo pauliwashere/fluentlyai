@@ -1,6 +1,6 @@
 .chat-window {
   display: grid;
-  min-height: 70vh;
+  max-height: 75vh;
   // to be checked before go live
   grid-template-rows: auto 1fr auto;
   margin: 8%;
@@ -8,6 +8,7 @@
   margin-bottom: 0;
   background-color: #ffffff;
   border-radius: 10px 10px 0 0;
+  overflow-y: scroll;
 }
 
 .bot-msg {
@@ -16,27 +17,109 @@
   border-radius: 10px;
   height: fit-content;
   color: #70857E;
-  width: 55%;
+  width: 50%;
   margin: 20px;
   padding: 15px;
   font-size: 16px;
+  font-family: "Poppins";
 }
 
-.user-msg {
+.msgs {
+  display: grid;
+  // flex-direction: column;
+  // to be checked before go live
+  grid-template-rows: auto 1fr auto;
+  min-height: 40vh;
+  margin-top: 0;
+  margin-bottom: 0;
+  background-color: #ffffff;
+  border-radius: 10px 10px 0 0;
+}
+
+.msgs > .user-msg {
   background-color: #E4AFFF;
   border: #10212E 1px solid;
   border-radius: 10px;
   color: #10212E;
-  width: 55%;
+  width: 50%;
   height: fit-content;
   margin-right: 20px;
   justify-self: right;
   padding: 15px;
   font-size: 16px;
   text-align: right;
+  font-family: "Poppins";
 }
 
 #new_user_message {
+
+}
+
+#user_message_content {
+  background-color: #f5f5f5;
+  border-style: none;
+  border-radius: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 99%;
+  margin-top: 5px;
+}
+.user-msg-field {
+  margin-right: 20px;
+}
+
+#send-msg {
+  margin-top: 5px;
+  height: fit-content;
+  border-style: none;
+  background-color: #10212E;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  margin-left: 10px !important;
+  margin-bottom: 10px;
+}
+#send-msg:hover {
+  background-color: #10212E !important;
+}
+
+.fa-paper-plane {
+  color: white;
+}
+
+.fa-paper-plane:hover {
+  color: white;
+}
+
+.end-btn {
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 20%;
+  border-radius: 20px;
+  background-color: #E4AFFF;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  text-align: center;
+  font-size: 12px;
+  font-family: "Lexend Tera";
+  border: #10212E 1px solid;
+  letter-spacing: -2px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.end-btn:hover {
+  background-color: #CEFFE0;
+}
+
+.input-with-btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
   margin-left: 8%;
   margin-right: 8%;
   background-color: white;
@@ -46,45 +129,67 @@
   padding-right: 10px;
 }
 
-#user_message_content {
-  background-color: #f5f5f5;
-  border-style: none;
+.input-field {
+  width: 100%;
 }
 
-.send-msg {
-  height: fit-content;
-  border-style: none;
-  background-color: #10212E;
-  border-radius: 50%;
+.record-btn {
+  margin-top: 5px;
   height: 40px;
   width: 40px;
-  margin-left: 10px;
-  margin-bottom: 10px;
-}
-.send-msg:hover {
-  background-color: #f5f5f5;
-}
-.fa-paper-plane {
-  color: white;
-}
-
-.fa-paper-plane:hover {
-  color: #10212E;
-}
-
-.end-btn {
-  height: 50px;
-  width: 150px;
-  border-radius: 15px;
-  background-color: #E4AFFF;
-  text-decoration: none;
+  border-radius: 50%;
   color: black;
-  font-weight:500;
-  text-align: center;
-  padding-top: 15px;
-  margin-left: 6px;
+  border: #10212E 1px solid;
+  margin-left: 5px;
+  margin-right: 5px;
+  background-color: #E4AFFF;
+  font-size: 20px;
 }
 
-.end-btn:hover {
+// .record-btn:hover {
+//   background-color: #CEFFE0;
+// }
+
+.record-btn:active {
   background-color: #CEFFE0;
+  color: #10212E
+}
+
+.chat-topic {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 20px;
+  margin-bottom: 15px;
+  margin-top: 20px;
+}
+
+.chat-topic p {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #CEFFE0;
+  border: #10212E 1px solid;
+  margin-left: 50px;
+  padding: 5px 10px 5px 10px;
+  text-align: center;
+  height: 30px;
+  border-radius: 15px;
+  margin-bottom: 0;
+  font-family: "Poppins";
+  font-size: 10px;
+}
+.chat-topic h3 {
+  margin-bottom: 0;
+  font-family: "Lexend Tera";
+  letter-spacing: -4px;
+  color: #10212E;
+  font-size: 24px;
+  font-weight:bolder;
+}
+
+.fa-volume-up {
+  font-size: 16px;
+  margin-left: 0;
+  margin-top: 10px;
 }

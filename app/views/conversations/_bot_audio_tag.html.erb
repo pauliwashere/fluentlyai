@@ -1,13 +1,13 @@
 <% if bot_message.audio.attached? %>
-    <div
-      data-controller="audio-player",
-      class= "d-none"
-      >
-      <% audio_player_data = { audio_player_target: (bot_message.id == @highest_bot_id ? "bot" : nil) } %>
-      <%= audio_tag bot_message.audio, controls: true, data: audio_player_data %>
-
-    </div>
-
-  <% else %>
-    <p>No audio available</p>
-  <% end %>
+  <div
+    data-controller="audio-player"
+  >
+    <% audio_player_data = { audio_player_target: "bot" } %>
+    <%= audio_tag bot_message.audio, controls: false, data: audio_player_data %>
+    <button data-action="audio-player#replay" style="font-size: 0.8em; background: transparent; border: none;">
+      <i class="fas fa-volume-up"></i>
+    </button>
+  </div>
+<% else %>
+  <p>No audio available</p>
+<% end %>

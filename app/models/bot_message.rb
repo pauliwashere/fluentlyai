@@ -2,7 +2,6 @@ class BotMessage < ApplicationRecord
   belongs_to :conversation
   has_one_attached :audio
 
-
   def generate_content(topic)
     client = OpenAI::Client.new
     chaptgpt_response = client.chat(parameters: {

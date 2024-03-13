@@ -1,29 +1,35 @@
-<div class="chat-window">
-  <div class="bot-msg">
-    <%= @conversation.bot_messages.first.content %>
-    <%= render "bot_audio_tag", bot_message: @conversation.bot_messages.first %>
+<div data-controller="insert-msg">
+  <div class="chat-window"  id="chat">
+    <div class="chat-topic">
+      <h3><%= @conversation.topic.name %></h3>
+      <p><%= @conversation.topic.level %> level</p>
+    </div>
+    <div class="bot-msg">
+      <%= @conversation.bot_messages.order('created_at ASC').first.content %>
+      <%= render "bot_audio_tag", bot_message: @conversation.bot_messages.first %>
+    </div>
+
+    <%= render "user_bot_msg", user_messages: @conversation.user_messages %>
 
   </div>
+  <div class = "input-with-btns" data-controller="audio-recording">
+    <div class = "input-field">
 
-  <% @conversation.user_messages.each_with_index do |user_msg, index| %>
-    <div class="user-msg">
-      <%= user_msg.content %>
+      <%= simple_form_for [@conversation, @user_message], html: {class: "d-flex", data: {
+        insert_msg_target: "form",
+        action: "submit->insert-msg#insertMsg"
+    }} do |f| %>
+          <%= f.input :content, label: false, placeholder: "Press and hold the record button to start recording a message", class: "user-msg-field", wrapper_html: {class: "flex-grow-1"}, input_html: { data: { audio_recording_target: 'input', insert_msg_target: 'input' }} %>
+          <%= f.button :button, id: "send-msg" do %>
+            <i class="fa-solid fa-paper-plane"></i>
+          <% end %>
+      <% end %>
+
+
     </div>
-    <% next_bot_message = @conversation.bot_messages.find { |bot_msg| bot_msg.created_at > user_msg.created_at } %>
-    <% if next_bot_message %>
-      <div class="bot-msg">
-        <%= next_bot_message.content %>
-      </div>
-    <% end %>
-      <%= render "bot_audio_tag", bot_message: next_bot_message  %>
-  <% end %>
-</div>
-<div class = "input-field">
-    <%= simple_form_for [@conversation, @user_message], html: {class: "d-flex"} do |f| %>
-        <%= f.input :content, label: false, placeholder: "Write something here", wrapper_html: {class: "flex-grow-1"} %>
-        <%= f.button :button, class: "send-msg" do %>
-          <i class="fa-solid fa-paper-plane"></i>
-        <% end %>
-        <%=link_to "End conversation", end_conversation_path(@conversation), data: { 'turbo-method': :patch }, class:"end-btn"%>
-    <% end %>
+    <div class="record" >
+      <button class="record-btn" data-audio-recording-target="recordButton" data-action="mousedown->audio-recording#startRecording mouseup->audio-recording#stopRecording"><i class="fa-solid fa-microphone"></i></button>
+    </div>
+    <%=link_to "End conversation", end_conversation_path(@conversation), data: { 'turbo-method': :patch }, class:"end-btn"%>
+  </div>
 </div>

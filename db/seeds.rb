@@ -34,9 +34,18 @@ paulina = User.new(username: "Paulina", email: "paulina1@mail.com", password: "1
 paulina.photo.attach(io: URI.open(paulina_url), filename: "nes1.png", content_type: "image/png")
 paulina.save
 
-# Topics:
+# Topics beginner:
 supermarket = Topic.create(name: "Supermarket", description: "Conversation happens at the supermarket between you and the cashier", level: "Beginner")
 airport = Topic.create(name: "Airport", description: "Conversation happens at the airport between you and the flight attendant", level: "Beginner")
 restaurant = Topic.create(name: "Restaurant", description: "Conversation happens at the restaurant between you and the waitress", level: "Beginner")
 directions = Topic.create(name: "Directions", description: "Conversation happens at the street between you and forigner asking for directions", level: "Beginner")
 hospital = Topic.create(name: "Hospital", description: "Conversation happens at the hospital between you and the receptionist", level: "Beginner")
+puppy_joga = Topic.create(name: "Puppy joga", description: "Conversation happens at a puppy yoga school, you talk to another person exercising", level: "Beginner")
+
+# Topics intermediate
+hiking = Topic.create(name: "Hike in Bavarian mountains", description: "Conversation happens during a hike between you and another hiker", level: "Intermediate")
+travel = Topic.create(name: "Your dream trip", description: "Conversation happens between you and another person who loves travelling", level: "Intermediate")
+movie = Topic.create(name: "Last time at a cinema", description: "Conversation with your friend about last movie you watched", level: "Intermediate")
+tv_show = Topic.create(name: "Favorite guilty pleasure tv show", description: "Conversation happens between you and your best friend", level: "Intermediate")
+healthy_lifestyle = Topic.create(name: "Healthy routine", description: "Conversation about a healthy lifestyle that happens at a gym, you talk to another person exercising", level: "Intermediate")
+art = Topic.create(name: "Modern art exhibition", description: "Conversation about a modern art exhibition in your cityhappens at a gym with your friend", level: "Intermediate")
