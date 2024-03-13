@@ -12,6 +12,11 @@
                   <%= f.radio_button :topic_id, topic.id, class: 'category-selector visually-hidden' %>
                   <%= f.label topic.name %>
                 <% end %>
+                <% if topic.picture.attached? %>
+                    <%# <%= f.association :picture, as: :file %>
+                    <%= image_tag topic.picture, class:"topic-pic"%>
+                    <%# <div class="topic-pic" style="background-image: url(<%= cl_image_path topic.picture.key %>
+                <% end %>
               </div>
               </div>
               <div class="flip-card-back" data-controller='form-submit' data-action='click->form-submit#submit'>
