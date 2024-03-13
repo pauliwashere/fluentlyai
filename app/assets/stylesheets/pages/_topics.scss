@@ -53,6 +53,7 @@
   background-color: #bbb;
   color: black;
   font-family: Poppins;
+  // background-image: url("app/assets/images/hiking.png");
 }
 .flip-card-front {
   h3{font-size: 12px !important;
@@ -118,7 +119,11 @@
   background-color: #70857E;
 }
 
-.flip-card-front > .topic-pic {
+.topic-pic {
   width: 350px;
   height: 250px;
+  border: #10212E 1px solid !important;
+  border-radius: 10px;
+  position: absolute;
+  top: 40px; left: 40px;
 }

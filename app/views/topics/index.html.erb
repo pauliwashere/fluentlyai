@@ -11,9 +11,8 @@
                 <%= simple_form_for @conversation, html: { id: 'conversation_form' } do |f| %>
                   <%= f.radio_button :topic_id, topic.id, class: 'category-selector visually-hidden' %>
                   <%= f.label topic.name %>
-                  <%= f.association :picture
                 <% end %>
-                <%= image_tag "hiking.png", class: "topic-pic" %>
+              </div>
               </div>
               <div class="flip-card-back" data-controller='form-submit' data-action='click->form-submit#submit'>
                 <%= simple_form_for @conversation, html: { data: {  form_submit_target: 'form' } } do |f| %>

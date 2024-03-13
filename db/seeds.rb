@@ -43,7 +43,10 @@ hospital = Topic.create(name: "Hospital", description: "Conversation happens at 
 puppy_joga = Topic.create(name: "Puppy joga", description: "Conversation happens at a puppy yoga school, you talk to another person exercising", level: "Beginner")
 
 # Topics intermediate
-hiking = Topic.create(name: "Hike in Bavarian mountains", description: "Conversation happens during a hike between you and another hiker", level: "Intermediate")
+hiking_url = "app/assets/images/hiking.png"
+hiking = Topic.new(name: "Hike in Bavarian mountains", description: "Conversation happens during a hike between you and another hiker", level: "Intermediate")
+hiking.picture.attach(io: URI.open(hiking_url), filename: "nes1.png", content_type: "image/png")
+hiking.save
 travel = Topic.create(name: "Your dream trip", description: "Conversation happens between you and another person who loves travelling", level: "Intermediate")
 movie = Topic.create(name: "Last time at a cinema", description: "Conversation with your friend about last movie you watched", level: "Intermediate")
 tv_show = Topic.create(name: "Favorite guilty pleasure tv show", description: "Conversation happens between you and your best friend", level: "Intermediate")
