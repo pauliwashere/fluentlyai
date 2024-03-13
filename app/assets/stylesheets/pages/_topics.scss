@@ -1,12 +1,16 @@
 .container.topics {
     margin-top: 20px !important;
     text-align: center;
+    width: 100%;
+    // margin-left: 8%;
+    // margin-right: 8%;
+    padding: 0;
 }
 
 .container.topics {
   h1{font-family: "Lexend Tera";
      font-weight:40px;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
     margin-top: 15px;
     }
 }
@@ -16,14 +20,14 @@
 }
 .category-wrapper {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between !important;
   flex-wrap: wrap;
   align-content: center;
 }
 
 .flip-card {
   background-color: transparent;
-  width: 400px;
+  width: 300px;
   height: 300px;
   border: 1px solid #f1f1f1;
   perspective: 1000px;
@@ -43,7 +47,7 @@
 }
 .flip-card-front, .flip-card-back {
   position: absolute;
-  width: 400px;
+  width: 300px;
   height: 300px;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -67,7 +71,7 @@
 
   p{font-size: 16px !important;
     font-family: Poppins !important;
-    padding: 5px;
+    padding: 15px;
     align-content: center;}
 }
 
@@ -77,10 +81,10 @@
   transform: rotateY(180deg);
 }
 .category-item {
-  flex: 0 0 calc(33.333% - 20px);
+  flex: 0 0 calc(25% - 20px);
   margin: 10px;
-  width: 500px;
-  height:100px;
+  width: 100%;
+  height: 100px;
   margin-bottom: 250px;
   font-family: "Poppins";
 }
@@ -94,12 +98,12 @@
   display: block;
   cursor: pointer;
   box-sizing: border-box;
-  width: 400px;
-  height: 300px;
+  width: 300px;
+  height: 320px;
   font-size: 18px;
   text-align: center;
   font-weight: bold;
-  padding: 50px 10px 50px 10px;
+  padding: 15px 10px 50px 10px;
   border: 2px solid #000000;
   border-radius: 10px;
   background-color: #FFFFFF;
@@ -116,4 +120,25 @@
 }
 :hover.submit-styling  {
   background-color: #70857E;
+}
+
+.topic-pic {
+    width: 240px;
+    height: 240px;
+    border: #10212E 1px solid !important;
+    border-radius: 10px;
+    position: absolute;
+    top: 60px; left: 30px;
+    background-size: cover !important;
+    background-position: center;
+}
+
+.pic {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.topic-name {
+  margin-top: 0 !important;
 }
