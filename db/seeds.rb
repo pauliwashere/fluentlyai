@@ -79,6 +79,6 @@ healthy_lifestyle.picture.attach(io: URI.open(healthy_lifestyle_url), filename: 
 healthy_lifestyle.save
 
 art_url = "app/assets/images/museum.png"
-art = Topic.create(name: "Modern art exhibition", description: "Conversation about a modern art exhibition in your cityhappens at a gym with your friend", level: "Intermediate")
+art = Topic.create(name: "Modern art exhibition", description: "Conversation about a modern art exhibition in your city", level: "Intermediate")
 art.picture.attach(io: URI.open(art_url), filename: "nes1.png", content_type: "image/png")
 art.save

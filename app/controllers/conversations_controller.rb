@@ -1,3 +1,5 @@
+require 'openai'
+
 class ConversationsController < ApplicationController
   def index
     @conversations = current_user.conversations.order(created_at: :desc)
@@ -10,8 +12,6 @@ class ConversationsController < ApplicationController
   def show
     @conversation = Conversation.find(params[:id])
     @bot_message = @conversation.bot_messages.last
-    # @conversation.user = @user
-    # @user = current_user
     @user_message = UserMessage.new
     @highest_bot_id = @conversation.bot_messages.max { |bot_message| bot_message.id }.id
   end
@@ -35,10 +35,17 @@ class ConversationsController < ApplicationController
   def end
     @my_current_conversation = Conversation.find(params[:id])
     @my_current_conversation = false
-    redirect_to feedback_conversation_path
   end
 
-  def feedback
-    @conversation = Conversation.find(params[:id])
+  def translate
+    message = UserMessage.find_by(id: params[:id]) || BotMessage.find_by(id: params[:id])
+    if message.nil?
+      render json: { error: "Message not found" }, status: :not_found
+      return
+    end
+
+    bot_message = BotMessage.new
+    translation = bot_message.translate(message.content)
+    render json: { translation: translation }
   end
 end

@@ -1,7 +1,7 @@
 
 <div class="container conversations" style="display: flex; align-items: flex-start;">
 <div>
-  <h1>Your Conversations</h1>
+  <h1>Conversation History</h1>
   <% @conversations.each do |conversation| %>
     <div class="container-cards conversation-wrapper">
       <div class="card-category conversation-item">
@@ -16,116 +16,12 @@
   <% end %>
     </div>
 
+<div>
+ <h1>Distribution of topics</h1>
+ <div class="container conversations" style="display: flex; align-items: flex-start;">
+  <div style="flex-grow: 1; margin-left: 100px; margin-top: 20px;">
+  <div style="margin-bottom: 50px;" data-controller="chart" data-chart-topic-names-value="<%= @topics.keys.to_json %>" data-chart-topic-data-value="<%= @topics.values.to_json %>">
 
- <div style="flex-grow: 1; margin-left: 100px; margin-top: 50px;">
-  <div style="margin-bottom: 50px;">
-    <!-- Canvas element for the chart -->
-    <canvas id="myChart" style="width: 100%; height: 400px;"></canvas>
-  </div>
-  <div>
-    <canvas id="myChart2" style="width: 100%; height: 400px;"></canvas>
-  </div>
-
-</div>
-    <!-- Include Chart.js from a CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
-    <!-- Script to create the chart -->
-
-    <script src="https://cdn.jsdelivr.net/npm/date-fns@2.27.0"></script>
-    <script>
-      var ctx = document.getElementById('myChart').getContext('2d');
-      var myChart = new Chart(ctx, {
-          type: 'bar',
-          data: {
-              labels: <%= raw @topics.keys.to_json %>,
-              datasets: [{
-                  label: 'View 1: Coverage of topics',
-                  data: <%= raw @topics.values.to_json %>,
-                  backgroundColor: '#FFF4CE',
-                  borderColor: '#FFF4CE',
-                  borderRadius: 10
-              }]
-          },
-    options: {
-         plugins: {
-              legend: {
-                  labels: {
-                      color: '#10212E',
-                      font: {
-                          size: 14,
-                          family: 'Poppins'
-                  }
-              }
-             }
-          },
-        scales: {
-            x: {
-                grid: {
-                    display: true,
-                    color: '#10212E',
-              },
-                ticks: {
-                      color: '#10212E',
-                      font: {
-                          size: 14,
-                          family: 'Poppins'
-                      }
-                  }
-              },
-            y: {
-                grid: {
-                    display: true,
-                    color: '#10212E',
-                 },
-                ticks: {
-                      color: '#10212E',
-                      font: {
-                          size: 14,
-                          family: 'Poppins'
-                  },
-                beginAtZero: true
-                }
-            }
-        }
-    }
- });
-</script>
-
-
-<script>
-  var ctx2 = document.getElementById('myChart2').getContext('2d');
-  var myChart2 = new Chart(ctx2, {
-      type: 'radar',
-      data: {
-          labels: <%= raw @topics.keys.to_json %>,
-          datasets: [{
-              label: 'View 2: Coverage of topics',
-              data: <%= raw @topics.values.to_json %>,
-              backgroundColor: '#FFF4CE',
-              borderColor: '#10212E',
-              pointBackgroundColor: '#FFF4CE',
-              pointBorderColor: '#10212E'
-          }]
-      },
-      options: {
-          scales: {
-              r: {
-                  grid: {
-                      display: true,
-                      color: '#10212E'
-                  },
-                  beginAtZero: true
-              }
-          },
-          plugins: {
-              legend: {
-                  labels: {
-                      color: '#10212E'
-                  }
-              }
-          }
-      }
-  });
-</script>
+       <canvas id="myChart" style="width: 100%; height: 400px;"data-chart-target="chart"></canvas>
+    </div>
+ </div>

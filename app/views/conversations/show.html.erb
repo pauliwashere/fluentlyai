@@ -4,10 +4,14 @@
       <h3><%= @conversation.topic.name %></h3>
       <p><%= @conversation.topic.level %> level</p>
     </div>
+  <div data-controller="translate">
     <div class="bot-msg">
       <%= @conversation.bot_messages.order('created_at ASC').first.content %>
+      <button class="translate-btn" data-action="click->translate#translateMessage" data-message-id="<%= @conversation.bot_messages.first.id %>">Translate</button>
+      <div class="translation"></div>
       <%= render "bot_audio_tag", bot_message: @conversation.bot_messages.first %>
     </div>
+  </div>
 
     <%= render "user_bot_msg", user_messages: @conversation.user_messages %>
 
@@ -24,7 +28,6 @@
             <i class="fa-solid fa-paper-plane"></i>
           <% end %>
       <% end %>
-
 
     </div>
     <div class="record" >

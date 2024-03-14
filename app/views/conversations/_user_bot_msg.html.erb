@@ -1,15 +1,18 @@
-<div class="msgs" data-insert-msg-target="conversation">
+<div class="msgs" data-controller="translate" data-insert-msg-target="conversation">
   <% @conversation.user_messages.each_with_index do |user_msg, index| %>
-      <div class="user-msg">
-        <%= user_msg.content %>
+    <div class="user-msg">
+      <%= user_msg.content %>
+      <button class="translate-btn" data-action="click->translate#translateMessage" data-message-id="<%= user_msg.id %>">Translate</button>
+      <div class="translation"></div>
+    </div>
+    <% next_bot_message = @conversation.bot_messages.find { |bot_msg| bot_msg.created_at > user_msg.created_at } %>
+    <% if next_bot_message %>
+      <div class="bot-msg">
+        <%= next_bot_message.content %>
+        <button class="translate-btn" data-action="click->translate#translateMessage" data-message-id="<%= next_bot_message.id %>">Translate</button>
+        <div class="translation"></div>
+        <%= render "conversations/bot_audio_tag", bot_message: next_bot_message  %>
       </div>
-      <% next_bot_message = @conversation.bot_messages.find { |bot_msg| bot_msg.created_at > user_msg.created_at } %>
-      <% if next_bot_message %>
-        <div class="bot-msg">
-          <%= next_bot_message.content %>
-          <%= render "conversations/bot_audio_tag", bot_message: next_bot_message  %>
-        </div>
-      <% end %>
-
     <% end %>
+  <% end %>
 </div>
