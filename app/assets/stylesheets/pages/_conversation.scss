@@ -4,7 +4,7 @@
   // to be checked before go live
   grid-template-rows: auto 1fr auto;
   margin: 8%;
-  margin-top: 0;
+  margin-top: 20px;
   margin-bottom: 0;
   background-color: #ffffff;
   border-radius: 10px 10px 0 0;
@@ -49,10 +49,6 @@
   font-size: 16px;
   text-align: right;
   font-family: "Poppins";
-}
-
-#new_user_message {
-
 }
 
 #user_message_content {
