@@ -1,0 +1,76 @@
+ .banner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 8%;
+  margin-right: -1%;
+}
+
+ .image {
+  width:95%;
+  height: 91vh;
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1; /* Ensure the image is behind the content */
+ }
+
+.items-container {
+  position: relative;
+  z-index: 1; /* Ensure content appears above the image */
+  text-align: center;
+}
+
+.items-container > h1 {
+  margin: 0;
+  color: black;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 40px;
+  font-family: "Lexend Tera";
+  font-weight: bold;
+  padding-top: 220px;
+  padding-bottom: 20px;
+}
+
+.items-container > h2 {
+  margin: 0;
+  color: black;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-family: "Lexend Tera";
+  font-weight: bold;
+  padding-bottom: 50px;
+}
+
+.items-container > p {
+  font-size: 25px;
+  color: black;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  padding-bottom: 60px;
+  font-family: "Poppins";
+}
+.start-btn {
+  height: 90px;
+  width: 20%;
+  text-decoration: none;
+  color: black;
+  position: center;
+  font-size:20px;
+  font-family: "Lexend Tera";
+  font-weight: bold;
+  padding: 30px 30px 30px 30px;
+  border: #10212E 3px solid;
+  text-align: center;
+  border-radius: 40px;
+  background-color: #E4AFFF;
+  border: #10212E 2px solid;
+  justify-content: center;
+}
+
+.start-btn:hover {
+  background-color: #CEFFE0;
+}
