@@ -198,3 +198,15 @@
 .hide {
   display: none;
 }
+
+.translate-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: #E4AFFF; 
+  font-size: 20px;
+}
+
+.translate-btn:hover {
+  color: #0a0a0a;
+}
