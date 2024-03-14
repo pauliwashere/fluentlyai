@@ -5,7 +5,7 @@ class FeedbackJob < ApplicationJob
     client = OpenAI::Client.new
     chaptgpt_response = client.chat(parameters: {
       model: "gpt-3.5-turbo",
-      messages: [{ role: "system", content: "Give feedback on this coversation between #{user_message.content} and addressee: #{bot_message.content}.
+      messages: [{ role: "system", content: "Give feedback on this message: #{user_message.content} which is a response to: #{bot_message.content}.
       Focus on grammar and vocabulary.
       Give improvement on the #{user_message.content}.
       Reply in English.
