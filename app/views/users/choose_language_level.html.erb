@@ -1,23 +1,42 @@
-<div class="page-container">
-  <h1 class="centered-title header-text">Choose Your Language Level</h1>
-  <div class="language-level-grid">
-    <div>
-      <%= button_to 'Beginner', { action: "set_language_level", level: "Beginner" }, method: :post, class: "language-level-button" %>
+<div class="container levels">
+  <h1>Choose Your Language Level</h1>
+  <div class="language-level">
+
+    <div class="set-level">
+      <%= link_to  users_set_language_level_path(level: "Beginner"), data: {turbo_method: :post}, class: "link" do %>
+        <div class="card-product">
+          <%= image_tag "plant_small.png" %>
+          <div class="card-product-infos">
+            <h2>Beginner</h2>
+            <p> This resource is tailored for <strong> beginners </strong> seeking to enhance their conversational abilities.</p>
+          </div>
+        </div>
+    <% end %>
     </div>
-    <div class="description-text">
-      This resource is tailored for beginners seeking to enhance their conversational abilities.
+
+ <div class="set-level">
+      <%= link_to  users_set_language_level_path(level: "Intermediate"), data: {turbo_method: :post}, class: "link" do %>
+        <div class="card-product">
+          <%= image_tag "plant_medium.png" %>
+          <div class="card-product-infos">
+            <h2>Intermediate</h2>
+            <p> This is for those who have <strong>some experience</strong> with the language and want to improve.</p>
+          </div>
+        </div>
+     <% end %>
     </div>
-    <div>
-      <%= button_to 'Intermediate', { action: "set_language_level", level: "Intermediate" }, method: :post, class: "language-level-button" %>
+
+ <div class="set-level">
+      <%= link_to  users_set_language_level_path(level: "Advanced"), data: {turbo_method: :post}, class: "link" do %>
+        <div class="card-product">
+          <%= image_tag "plant_big.png" %>
+          <div class="card-product-infos">
+            <h2>Advanced</h2>
+            <p> This is for those who are <strong>fluent</strong> in the language and want to maintain their skills.</p>
+          </div>
+        </div>
+      <% end %>
     </div>
-    <div class="description-text">
-      This is for those who have some experience with the language and want to improve.
-    </div>
-    <div>
-      <%= button_to 'Advanced', { action: "set_language_level", level: "Advanced" }, method: :post, class: "language-level-button" %>
-    </div>
-    <div class="description-text">
-      This is for those who are fluent in the language and want to maintain their skills.
-    </div>
+
   </div>
 </div>
