@@ -1,12 +1,30 @@
 
+#dashboard {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  font-family: 'Lexend Tera';
+  font-size: 40px;
+}
 
 .container.conversations {
+  display: flex;
+  align-items: flex-start;
   margin-top: 20px !important;
   text-align: center;
 }
 
-.container.conversations p {
-p{font-size: 20px;}
+.container.conversations{
+  h2{font-family: 'Lexend Tera';
+    font-size: 20px;
+    margin-bottom: 30px;
+  }
+}
+
+ .container.conversations{
+  p{font-family: 'Poppins';
+    font-size: 16px;
+    }
 }
 
 .conversation-wrapper {
@@ -15,29 +33,40 @@ flex-direction: column;
 justify-content: space-between;
 align-content: center;
 }
+
 .conversation-item {
   margin: 15px;
   width: 500px;
-  height: auto; /* adjust the height to auto */
-  margin-bottom: 50px;
+  height: auto;
+  margin-bottom: 20px;
   border: 2px solid #000000;
-    background-color: #CEFFE0; // applied background color
+  background-color: #CEFFE0;
   border-radius: 5px;
+  padding: 10px;
+  border-radius: 10px;
 }
+
 .conversation-item ul li {
+  margin-top: 5px;
   list-style: none;
-  padding: 0;
+  padding: 5px;
   margin-right: 5px;
+  text-align: left;
+  font-size: 16px;
+  font-family: 'Poppins';
+
 }
 
-.conversation-details li a {
-  font-weight: bold;
+.conversation-item .conversation-title {
+  color: black;
+  font-family: 'Lexend Tera';
+  font-size: 16px;
   text-decoration: none;
-  font: black //does not work yet, selector seems not to apply properly
 }
 
-.conversation-item .icon{
- margin-bottom: 10px;
+
+.dashboard-icon {
+  margin-right: 10px;
 }
 
 .submit-styling {
@@ -45,6 +74,7 @@ background-color: #E4AFFF;
 font-weight: bold;
 padding: 20px;
 }
+
 :hover.submit-styling  {
 background-color: #70857E;
 }
