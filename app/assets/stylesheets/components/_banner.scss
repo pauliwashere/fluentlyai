@@ -1,13 +1,20 @@
-
 .banner {
   background-image: image-url('banner.png');
+  // background-size: contain;
   background-size: cover;
-  background-position: center;
-  padding: 275px 0;
+  background-position: top 1px center;
+  // background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  margin: 0 !important;
+  width: 100% !important;
+  padding: 0;
 }
 
 .items-container {
   text-align: center;
+  padding: 250px 0;
+
 }
 
 .banner h1 {
@@ -59,5 +66,3 @@
 .start-btn:hover {
   background-color: #CEFFE0;
 }
-
-
