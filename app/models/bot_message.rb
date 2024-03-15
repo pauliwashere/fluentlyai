@@ -40,4 +40,17 @@ class BotMessage < ApplicationRecord
     audio.attach(io: StringIO.new(audio_content), filename: "bot_audio_#{id}.mp3", content_type: "audio/mp3")
     File.delete("bot-audio.mp3")
   end
+
+  def translate(user_message_content)
+    client = OpenAI::Client.new
+    response = client.chat(parameters: {
+      model: "gpt-3.5-turbo",
+      messages: [
+        { role: "system", content: "You are a helpful assistant that translates text to English." },
+        { role: "user", content: user_message_content }
+      ]
+    })
+    translation = response['choices'].first['message']['content'].strip
+    translation
+  end
 end
