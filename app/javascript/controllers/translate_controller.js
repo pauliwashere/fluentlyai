@@ -9,7 +9,8 @@ export default class extends Controller {
       target = target.parentElement;
     }
     const messageId = target.dataset.messageId
-    const translationDiv = target.nextElementSibling
+    const parentDiv = target.closest('.user-msg') || target.closest('.bot-msg');
+    const translationDiv = parentDiv.querySelector('.translation');
     if (translationDiv && translationDiv.textContent) { // Added null check for translationDiv
       translationDiv.classList.toggle('hide')
     } else {
