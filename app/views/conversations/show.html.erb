@@ -7,11 +7,14 @@
   <div data-controller="translate">
     <div class="bot-msg">
       <%= @conversation.bot_messages.order('created_at ASC').first.content %>
-      <button class="translate-btn" data-action="click->translate#translateMessage" data-message-id="<%= @conversation.bot_messages.first.id %>">
+
+      <div class="translation" data-message-id="<%= @conversation.bot_messages.first.id %>"></div> <!-- Added data-message-id attribute here -->
+      <div class="bot-msg-buttons">
+        <%= render "bot_audio_tag", bot_message: @conversation.bot_messages.first %>
+        <button class="translate-btn" data-action="click->translate#translateMessage" data-message-id="<%= @conversation.bot_messages.first.id %>">
         <i class="fas fa-language"></i> <!-- Font Awesome language icon -->
       </button>
-      <div class="translation" data-message-id="<%= @conversation.bot_messages.first.id %>"></div> <!-- Added data-message-id attribute here -->
-      <%= render "bot_audio_tag", bot_message: @conversation.bot_messages.first %>
+      </div>
     </div>
   </div>
 

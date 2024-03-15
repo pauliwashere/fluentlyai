@@ -2,20 +2,18 @@
   <% @conversation.user_messages.each_with_index do |user_msg, index| %>
     <div class="user-msg">
       <%= user_msg.content %>
-      <button class="translate-btn" data-action="click->translate#translateMessage" data-message-id="<%= user_msg.id %>">
-        <i class="fas fa-language"></i> <!-- Font Awesome language icon -->
-      </button>
-      <div class="translation" data-message-id="<%= user_msg.id %>"></div>
     </div>
     <% next_bot_message = @conversation.bot_messages.find { |bot_msg| bot_msg.created_at > user_msg.created_at } %>
     <% if next_bot_message %>
       <div class="bot-msg">
         <%= next_bot_message.content %>
-        <button class="translate-btn" data-action="click->translate#translateMessage" data-message-id="<%= next_bot_message.id %>">
-          <i class="fas fa-language"></i> <!-- Font Awesome language icon -->
-        </button>
         <div class="translation" data-message-id="<%= next_bot_message.id %>"></div>
-        <%= render "conversations/bot_audio_tag", bot_message: next_bot_message  %>
+        <div class="bot-msg-buttons">
+          <%= render "conversations/bot_audio_tag", bot_message: next_bot_message  %>
+          <button class="translate-btn" data-action="click->translate#translateMessage" data-message-id="<%= next_bot_message.id %>">
+            <i class="fas fa-language"></i> <!-- Font Awesome language icon -->
+          </button>
+        </div>
       </div>
     <% end %>
   <% end %>
