@@ -3,4 +3,6 @@ import "@hotwired/turbo-rails"
 import "controllers"
 import "@popperjs/core"
 import "bootstrap"
-// import Chart from 'chart.js/auto'
+
+import "chartkick"
+import "Chart.bundle"

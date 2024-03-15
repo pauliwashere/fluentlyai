@@ -1,54 +1,78 @@
-.language-level-grid {
-  display: grid;
-  grid-template-columns: auto auto;
-  gap: 20px;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.language-level-button {
-  width: 150px;
-  height: 50px;
-  background-color: #CEFFE0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  box-sizing: border-box;
-  font-size: 18px;
-  font-weight: bold;
-  padding: 50px 10px 50px 10px;
-  border: 2px solid #000000;
-  border-radius: 5px;
-}
-
-.centered-title {
+.container .levels {
+  margin-top: 20px !important;
   text-align: center;
+  width: 100%;
+  padding: 15px;
 }
 
-.page-container {
+.container.levels {
+  h1{font-family: "Lexend Tera";
+     font-weight:40px;
+     margin-bottom: 70px;
+     margin-top: 10%;
+     text-align: center;
+    }
+}
+
+.language-level{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 50vh;
 }
 
-.description-text {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: auto;
+.set-level{
+  width: 60%;
+  align-self: center;
 }
 
-.header-text {
-  font-family: 'Lexend Tera', sans-serif;
-  font-weight: 600;
-  font-size: 24px;
-  line-height: auto;
-  letter-spacing: -0.15em;
-  margin-top: 80px;
-  margin-bottom: 80px
+.link{
+  text-decoration: none;
+}
+
+.card-product {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+  border-radius: 10px;
+  border: black solid 1px;
+}
+
+.card-product img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+
+.card-product h2 {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0;
+  font-family: "Lexend Tera";
+  color: black;
+  background-color: #CEFFE0;
+  border: #10212E 1px solid;
+  margin-left: 0;
+  margin-right: 70%;
+  padding: 10px;
+  width:fit-content;
+  height: 35px;
+  border-radius: 15px;
+  margin-bottom: 0;
+}
+
+.card-product p {
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+  font-size: 20px;
+  font-family: "Poppins";
+  color: black;
+}
+
+.card-product .card-product-infos {
+  padding: 16px;
 }

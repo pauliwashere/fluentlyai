@@ -1,6 +1,6 @@
 .chat-window {
   display: grid;
-  max-height: 75vh;
+  max-height: 90vh !important;
   // to be checked before go live
   grid-template-rows: auto 1fr auto;
   margin: 8%;
@@ -29,7 +29,7 @@
   // flex-direction: column;
   // to be checked before go live
   grid-template-rows: auto 1fr auto;
-  min-height: 40vh;
+  min-height: 57vh;
   margin-top: 0;
   margin-bottom: 0;
   background-color: #ffffff;
