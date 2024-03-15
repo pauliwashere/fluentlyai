@@ -12,8 +12,8 @@
       <div class="bot-msg-buttons">
         <%= render "bot_audio_tag", bot_message: @conversation.bot_messages.first %>
         <button class="translate-btn" data-action="click->translate#translateMessage" data-message-id="<%= @conversation.bot_messages.first.id %>">
-        <i class="fas fa-language"></i> <!-- Font Awesome language icon -->
-      </button>
+          <i class="fas fa-language"></i> <!-- Font Awesome language icon -->
+        </button>
       </div>
     </div>
   </div>
