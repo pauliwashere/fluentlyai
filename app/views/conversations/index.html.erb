@@ -1,27 +1,30 @@
 
-<div class="container conversations" style="display: flex; align-items: flex-start;">
-<div>
-  <h1>Conversation History</h1>
-  <% @conversations.each do |conversation| %>
-    <div class="container-cards conversation-wrapper">
-      <div class="card-category conversation-item">
-        <ul class="conversation-details">
-          <li><strong></strong> <%= link_to "Conversation #{conversation.id}", conversation_path(conversation) %></li>
-          <li><i class="fa fa-calendar"></i> <strong></strong> <%= conversation.created_at.strftime("%B %d, %Y") %></li>
-          <li><i class="fa fa-clock"></i> <strong></strong> <%= conversation.created_at.strftime("%I:%M %p") %></li>
-          <li><i class="fa fa-comment"></i> <strong></strong> <%= conversation.topic.name %></li>
-        </ul>
-      </div>
-    </div>
-  <% end %>
-    </div>
+<div class="container">
+  <h1 id="dashboard">Dashboard</h1>
+  <div class="container conversations">
+    <div>
+      <h2>Conversation History</h2>
+      <% @conversations.each do |conversation| %>
+        <div class="container-cards conversation-wrapper">
+          <div class="card-category conversation-item">
+            <ul class="conversation-details">
+              <li><strong></strong> <%= link_to "Conversation #{conversation.id}", conversation_path(conversation), class:"conversation-title" %></li>
+              <li><i class="fa fa-calendar dashboard-icon"></i> <strong></strong> <%= conversation.created_at.strftime("%B %d, %Y") %></li>
+              <li><i class="fa fa-clock dashboard-icon"></i> <strong></strong> <%= conversation.created_at.strftime("%I:%M %p") %></li>
+              <li><i class="fa fa-comment dashboard-icon"></i> <strong></strong> <%= conversation.topic.name %></li>
+            </ul>
+          </div>
+        </div>
+      <% end %>
+        </div>
 
-<div>
- <h1>Distribution of topics</h1>
- <div class="container conversations" style="display: flex; align-items: flex-start;">
-  <div style="flex-grow: 1; margin-left: 100px; margin-top: 20px;">
-  <div style="margin-bottom: 50px;" data-controller="chart" data-chart-topic-names-value="<%= @topics.keys.to_json %>" data-chart-topic-data-value="<%= @topics.values.to_json %>">
+    <div>
+    <h2>Distribution of Topics</h2>
+    <div class="container conversations">
+      <div style="flex-grow: 1; margin-left: 100px; margin-top: 20px;">
+      <div style="margin-bottom: 50px;" data-controller="chart" data-chart-topic-names-value="<%= @topics.keys.to_json %>" data-chart-topic-data-value="<%= @topics.values.to_json %>">
 
-       <canvas id="myChart" style="width: 100%; height: 400px;"data-chart-target="chart"></canvas>
-    </div>
+          <canvas id="myChart" style="width: 100%; height: 400px;"data-chart-target="chart"></canvas>
+        </div>
  </div>
+</div>
