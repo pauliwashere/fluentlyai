@@ -29,7 +29,7 @@
   // flex-direction: column;
   // to be checked before go live
   grid-template-rows: auto 1fr auto;
-  min-height: 57vh;
+  min-height: 50vh;
   margin-top: 0;
   margin-bottom: 0;
   background-color: #ffffff;
@@ -188,4 +188,45 @@
   font-size: 16px;
   margin-left: 0;
   margin-top: 10px;
+  background-color: #CEFFE0;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: #10212E 1px solid;
+  padding-top: 10px;
+  margin-right: 5px;
+}
+
+.translation {
+  font-size: smaller;
+  font-style: italic;
+}
+
+.hide {
+  display: none;
+}
+
+.translate-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: #0a0a0a;
+  font-size: 22px;
+  background-color: #CEFFE0;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: #10212E 1px solid;
+  margin-top: 10px;
+}
+
+.translate-btn:hover {
+  color: #0a0a0a;
+}
+
+.bot-msg-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-left: 0;
 }

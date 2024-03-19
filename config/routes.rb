@@ -20,10 +20,8 @@ Rails.application.routes.draw do
   resources :conversations, only: %i[index show create] do
     member do
       patch :end
-    end
-
-    member do
       get 'feedback', to: "conversations#feedback"
+      get 'translate', to: "conversations#translate"
     end
 
     resources :user_messages, only: %i[create]
